@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const sliderImages = [
-  "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=2058&auto=format&fit=crop", 
-  "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2070&auto=format&fit=crop", 
-  "https://images.unsplash.com/photo-1592833159057-6fc1fa659101?q=80&w=2070&auto=format&fit=crop"
+  "/Gemini_Generated_Image_1x7o8v1x7o8v1x7o.png",
+  "/Gemini_Generated_Image_2qdd612qdd612qdd.png",
+  "/Gemini_Generated_Image_5w1goh5w1goh5w1g.png",
+  "/Gemini_Generated_Image_lpydxolpydxolpyd.png"
 ];
 
 const ConsultationForm = () => {
