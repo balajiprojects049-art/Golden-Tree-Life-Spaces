@@ -21,6 +21,25 @@ function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Dynamic Title Update for SEO
+    const baseTitle = "Golden Tree Life Spaces";
+    const titleMap = {
+      "/": `${baseTitle} | Best Solar Panel Installation in Nellore`,
+      "/about": `About Us | ${baseTitle}`,
+      "/services": `Our Solar Solutions | ${baseTitle}`,
+      "/contact": `Contact Us | ${baseTitle}`,
+      "/services/on-grid": `On-Grid Solar Systems | ${baseTitle}`,
+      "/services/off-grid": `Off-Grid Solar Solutions | ${baseTitle}`,
+      "/services/water-heater": `Solar Water Heaters | ${baseTitle}`,
+      "/services/solar-fencing": `Solar Secure Fencing | ${baseTitle}`,
+      "/services/street-light": `Solar Street Lights | ${baseTitle}`,
+      "/services/cctv": `Solar Powered CCTV | ${baseTitle}`,
+      "/services/water-pumping": `Agricultural Solar Pumping | ${baseTitle}`,
+      "/free-consultation": `Free Consultation | ${baseTitle}`
+    };
+    
+    document.title = titleMap[pathname] || baseTitle;
   }, [pathname]);
   return null;
 }

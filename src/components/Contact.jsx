@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiPhone, FiMail, FiMapPin, FiCheckCircle, FiClock, FiSend } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -9,6 +9,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [activeLocation, setActiveLocation] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,13 +53,15 @@ const Contact = () => {
   const locations = [
     { 
       name: 'Corporate Office', 
-      addr: 'Nellore, Andhra Pradesh', 
-      link: 'https://maps.app.goo.gl/mJ7KmwNpC33cUUVK9' 
+      addr: 'Ground Floor, Presidio Towers, Mini Bypass Road, Ramalinga Puram, Nellore - 524003', 
+      link: 'https://maps.app.goo.gl/mJ7KmwNpC33cUUVK9',
+      embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.7903699156136!2d79.9833098!3d14.4392412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4cf3f7d753e301%3A0x8f20eef1fb51b4fe!2sGOLDEN%20TREE%20LIFE%20SPACES%20SOLAR%20IN%20NELLORE!5e0!3m2!1sen!2sin!4v1773340956560!5m2!1sen!2sin'
     },
     { 
       name: 'Experience Center', 
-      addr: 'Visit our Solar Lab', 
-      link: 'https://maps.app.goo.gl/htXECBkvr7K7GYyg8' 
+      addr: 'Muthukur Rd, near Narayana Medical College, Gundlapalem, Nellore - 524003', 
+      link: 'https://maps.app.goo.gl/htXECBkvr7K7GYyg8',
+      embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3864.196740871909!2d80.0120288!3d14.4158193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4cf50391cefcf9%3A0xf8a3c0fd82bb70e2!2sGolden%20tree%20life%20spaces%20%26%20Cement+and+Steel!5e0!3m2!1sen!2sin!4v1773341002016!5m2!1sen!2sin'
     }
   ];
 
@@ -106,39 +109,6 @@ const Contact = () => {
                 ))}
               </div>
 
-              <div className="bg-slate-900 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-2xl">
-                <div className="absolute top-0 right-0 p-8 opacity-10">
-                  <FiClock className="text-6xl" />
-                </div>
-                <h4 className="flex items-center gap-2 text-green-400 font-bold text-sm mb-6 uppercase tracking-widest">
-                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                  Business Hours
-                </h4>
-                <div className="grid grid-cols-2 gap-8 relative z-10">
-                  <div>
-                    <div className="text-slate-400 text-xs mb-1">Monday - Saturday</div>
-                    <div className="font-bold">9:00 AM - 6:30 PM</div>
-                  </div>
-                  <div>
-                    <div className="text-slate-400 text-xs mb-1">Sunday</div>
-                    <div className="font-bold text-slate-500 italic">By Appointment Only</div>
-                  </div>
-                </div>
-                
-                <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-4">
-                  {locations.map((loc, i) => (
-                    <a 
-                      key={i} 
-                      href={loc.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-xs text-slate-300 hover:text-green-400 transition-colors flex items-center gap-2"
-                    >
-                      <FiMapPin className="text-green-400" /> {loc.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
             </motion.div>
           </div>
 
@@ -235,6 +205,108 @@ const Contact = () => {
             </motion.div>
           </div>
 
+        </div>
+
+        {/* Full-width Business Hours & Locations Card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-16 bg-slate-900 rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl"
+        >
+          <div className="absolute top-0 right-0 p-12 opacity-5">
+            <FiClock className="text-[12rem]" />
+          </div>
+          
+          <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left part: Business Hours */}
+            <div>
+              <h4 className="flex items-center gap-2 text-green-400 font-bold text-sm mb-8 uppercase tracking-widest">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                Business Hours
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/5">
+                  <div className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Monday - Saturday</div>
+                  <div className="text-2xl font-black text-white">9:00 AM - 6:30 PM</div>
+                </div>
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/5">
+                  <div className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Sunday</div>
+                  <div className="text-2xl font-black text-slate-400 italic">By Appointment Only</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right part: Locations Switcher */}
+            <div className="lg:border-l lg:border-white/10 lg:pl-12">
+              <h4 className="text-white/40 font-bold text-xs mb-6 uppercase tracking-widest">Our Locations</h4>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {locations.map((loc, i) => (
+                  <button 
+                    key={i} 
+                    onClick={() => setActiveLocation(i)}
+                    className={`w-full text-left p-6 rounded-2xl transition-all duration-300 flex flex-col gap-3 leading-relaxed border ${
+                      activeLocation === i 
+                      ? 'bg-green-600 text-white border-green-500 shadow-lg shadow-green-900/20 scale-[1.02]' 
+                      : 'border-white/10 text-slate-300 hover:bg-white/5'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`p-2 rounded-lg ${activeLocation === i ? 'bg-white/20' : 'bg-slate-800'}`}>
+                        <FiMapPin className={activeLocation === i ? 'text-white' : 'text-slate-500'} /> 
+                      </div>
+                      <span className={`font-bold text-sm ${activeLocation === i ? 'text-white' : 'text-slate-100'}`}>{loc.name}</span>
+                    </div>
+                    <span className="text-[11px] leading-relaxed opacity-80">{loc.addr}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Map Section */}
+      <div className="mt-24 w-full">
+        <div className="max-w-7xl mx-auto px-4 mb-8">
+          <div className="flex gap-4 border-b border-slate-100">
+            {locations.map((loc, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveLocation(i)}
+                className={`pb-4 px-2 text-sm font-bold transition-all relative ${
+                  activeLocation === i ? 'text-green-600' : 'text-slate-400 hover:text-slate-600'
+                }`}
+              >
+                {loc.name}
+                {activeLocation === i && (
+                  <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-1 bg-green-500 rounded-t-full" />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        <div className="w-full h-[500px] bg-slate-100 relative group">
+          <AnimatePresence mode="wait">
+            <motion.iframe 
+              key={activeLocation}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              title={locations[activeLocation].name}
+              src={locations[activeLocation].embed} 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale hover:grayscale-0 transition-all duration-700"
+            ></motion.iframe>
+          </AnimatePresence>
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-500/20 to-transparent" />
         </div>
       </div>
     </section>

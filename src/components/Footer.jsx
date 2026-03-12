@@ -1,4 +1,4 @@
-import { FiFacebook, FiInstagram, FiLinkedin, FiPhone, FiMail, FiSun } from 'react-icons/fi';
+import { FiFacebook, FiInstagram, FiLinkedin, FiPhone, FiMail, FiSun, FiMapPin } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -108,13 +108,32 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:goldentreelifespaces@gmail.com" className="flex items-center gap-3 text-sm hover:text-primary transition-colors truncate">
-                  <FiMail className="text-primary shrink-0" />
-                  goldentreelifespaces@gmail.com
-                </a>
-              </li>
-              <li className="text-sm text-gray-400 mt-6 pt-6 border-t border-white/10">
-                Contact us for a free site assessment and customized 3D solar design quote.
+                <div className="flex flex-col gap-4 mt-6 pt-6 border-t border-white/10">
+                  <a 
+                    href="https://maps.app.goo.gl/mJ7KmwNpC33cUUVK9" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex gap-3 text-xs hover:text-primary transition-colors leading-relaxed"
+                  >
+                    <FiMapPin className="text-primary mt-1 shrink-0" />
+                    <div>
+                      <span className="font-bold block text-white mb-0.5">Corporate Office</span>
+                      Ground Floor, Presidio Towers, Mini Bypass Road, Ramalinga Puram, Nellore - 524003
+                    </div>
+                  </a>
+                  <a 
+                    href="https://maps.app.goo.gl/htXECBkvr7K7GYyg8" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex gap-3 text-xs hover:text-primary transition-colors leading-relaxed"
+                  >
+                    <FiMapPin className="text-primary mt-1 shrink-0" />
+                    <div>
+                      <span className="font-bold block text-white mb-0.5">Experience Center</span>
+                      Muthukur Rd, near Narayana Medical College, Gundlapalem, Nellore - 524003
+                    </div>
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
