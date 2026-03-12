@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import WhatsAppFloat from './components/WhatsAppFloat';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 import ConsultationPage from './pages/ConsultationPage';
@@ -47,6 +48,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }

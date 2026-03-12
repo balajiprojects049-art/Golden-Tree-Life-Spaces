@@ -11,6 +11,18 @@ const ConsultationForm = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeTab, setActiveTab] = useState('Residential');
 
+  // Unified Form State
+  const [formData, setFormData] = useState({
+    fullName: '',
+    whatsapp: '',
+    pincode: '',
+    city: '',
+    companyName: '',
+    housingSocietyName: '',
+    electricityBill: '0 - 50000',
+    agmStatus: 'Select Approval Status'
+  });
+
   // For the tag selection logic
   const [selectedBill, setSelectedBill] = useState('');
   const [selectedDesignation, setSelectedDesignation] = useState('');
@@ -21,6 +33,49 @@ const ConsultationForm = () => {
     }, 4000);
     return () => clearInterval(timer);
   }, []);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Build the WhatsApp message based on the active tab
+    let message = `*🌟 New Consultation Request - Golden Tree 🌟*%0A`;
+    message += `➖➖➖➖➖➖➖➖➖➖➖➖➖%0A%0A`;
+    message += `📋 *Customer Segment:* ${activeTab}%0A%0A`;
+    message += `👤 *Client Details*%0A`;
+    message += `• *Name:* ${formData.fullName}%0A`;
+    message += `• *WhatsApp:* ${formData.whatsapp}%0A`;
+
+    if (activeTab === 'Residential') {
+      message += `• *Pincode:* ${formData.pincode}%0A`;
+      message += `• *Avg Monthly Bill:* ${selectedBill || 'Not provided'}%0A`;
+    } 
+    else if (activeTab === 'Housing Society') {
+      message += `• *Society Name:* ${formData.housingSocietyName}%0A`;
+      message += `• *Pincode:* ${formData.pincode}%0A`;
+      message += `• *Monthly Bill:* ${formData.electricityBill}%0A`;
+      message += `• *Designation:* ${selectedDesignation || 'Not provided'}%0A`;
+      message += `• *AGM Status:* ${formData.agmStatus}%0A`;
+    } 
+    else if (activeTab === 'Commercial') {
+      message += `• *Company:* ${formData.companyName}%0A`;
+      message += `• *City:* ${formData.city}%0A`;
+      message += `• *Pincode:* ${formData.pincode}%0A`;
+      message += `• *Avg Monthly Bill:* ${formData.electricityBill}%0A`;
+    }
+
+    message += `%0A➖➖➖➖➖➖➖➖➖➖➖➖➖%0A`;
+    message += `_🤖 Securely submitted via website form_`;
+
+    // WhatsApp API URL for +91 98858 48445
+    const whatsappUrl = `https://wa.me/919885848445?text=${message}`;
+    
+    // Open in new tab/app
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <section className="py-10 lg:py-12 bg-slate-50 font-sans overflow-hidden relative">
@@ -64,6 +119,7 @@ const ConsultationForm = () => {
               {['Residential', 'Housing Society', 'Commercial'].map(tab => (
                 <button
                   key={tab}
+                  type="button"
                   onClick={() => {
                     setActiveTab(tab);
                     setSelectedBill('');
@@ -81,22 +137,22 @@ const ConsultationForm = () => {
             </div>
 
             {/* Form Fields based on tab */}
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               
               {activeTab === 'Residential' && (
                 <AnimatePresence mode="popLayout">
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-slate-700">Full Name <span className="text-red-500">*</span></label>
-                      <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                      <input required type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-slate-700">WhatsApp number <span className="text-red-500">*</span></label>
-                      <input type="tel" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                      <input required type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-slate-700">Pin code <span className="text-red-500">*</span></label>
-                      <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                      <input required type="text" name="pincode" value={formData.pincode} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                     </div>
                     
                     <div className="space-y-3 pt-2">
@@ -129,24 +185,24 @@ const ConsultationForm = () => {
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-5">
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-slate-700">Full Name <span className="text-red-500">*</span></label>
-                      <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                      <input required type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-slate-700">Name of Housing Society <span className="text-red-500">*</span></label>
-                      <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                      <input required type="text" name="housingSocietyName" value={formData.housingSocietyName} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-slate-700">Pin code <span className="text-red-500">*</span></label>
-                      <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                      <input required type="text" name="pincode" value={formData.pincode} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
                         <label className="text-sm font-medium text-slate-700">WhatsApp number <span className="text-red-500">*</span></label>
-                        <input type="tel" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                        <input required type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                       </div>
                       <div className="space-y-1.5">
                         <label className="text-sm font-medium text-slate-700">Monthly Electricity Bill <span className="text-red-500">*</span></label>
-                        <select className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all bg-white text-slate-700">
+                        <select name="electricityBill" value={formData.electricityBill} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all bg-white text-slate-700">
                           <option>0 - 50000</option>
                           <option>50000 - 150000</option>
                           <option>More than 150000</option>
@@ -173,7 +229,7 @@ const ConsultationForm = () => {
                     </div>
                     <div className="space-y-1.5 pt-1">
                       <label className="text-sm font-medium text-slate-700">AGM approval status <span className="text-red-500">*</span></label>
-                      <select className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all bg-white text-slate-700">
+                      <select name="agmStatus" value={formData.agmStatus} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all bg-white text-slate-700">
                         <option>Select Approval Status</option>
                         <option>Already Approved</option>
                         <option>Approval Pending</option>
@@ -189,30 +245,30 @@ const ConsultationForm = () => {
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-slate-700">Full Name <span className="text-red-500">*</span></label>
-                      <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                      <input required type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-slate-700">Company Name <span className="text-red-500">*</span></label>
-                      <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                      <input required type="text" name="companyName" value={formData.companyName} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
                         <label className="text-sm font-medium text-slate-700">City <span className="text-red-500">*</span></label>
-                        <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                        <input required type="text" name="city" value={formData.city} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                       </div>
                       <div className="space-y-1.5">
                         <label className="text-sm font-medium text-slate-700">Pin code</label>
-                        <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                        <input type="text" name="pincode" value={formData.pincode} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                       </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
                         <label className="text-sm font-medium text-slate-700">WhatsApp number <span className="text-red-500">*</span></label>
-                        <input type="tel" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                        <input required type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                       </div>
                       <div className="space-y-1.5">
                         <label className="text-sm font-medium text-slate-700">Average Monthly Bill <span className="text-red-500">*</span></label>
-                        <input type="text" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
+                        <input required type="text" name="electricityBill" value={formData.electricityBill} onChange={handleChange} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1d3557] focus:ring-1 focus:ring-[#1d3557] transition-all" />
                       </div>
                     </div>
                   </motion.div>
@@ -223,7 +279,7 @@ const ConsultationForm = () => {
               <div className="pt-4 border-t border-slate-100">
                 <label className="flex items-start gap-3 cursor-pointer group">
                   <div className="relative flex items-center mt-0.5">
-                    <input type="checkbox" defaultChecked className="peer shrink-0 w-4 h-4 text-[#1d3557] bg-white border-slate-300 rounded focus:ring-[#1d3557] focus:ring-2 appearance-none checked:bg-[#1d3557] checked:border-[#1d3557]" />
+                    <input required type="checkbox" defaultChecked className="peer shrink-0 w-4 h-4 text-[#1d3557] bg-white border-slate-300 rounded focus:ring-[#1d3557] focus:ring-2 appearance-none checked:bg-[#1d3557] checked:border-[#1d3557]" />
                     <svg className="absolute w-4 h-4 text-white pointer-events-none opacity-0 peer-checked:opacity-100 p-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
                   <span className="text-sm text-slate-500 leading-tight select-none">
@@ -237,7 +293,7 @@ const ConsultationForm = () => {
                   type="submit" 
                   className="bg-[#0b1021] hover:bg-[#1d3557] text-white font-bold text-sm py-4 px-8 rounded-full transition-all shadow-lg hover:shadow-xl w-fit min-w-[180px]"
                 >
-                  Submit Details
+                  Submit Form
                 </button>
               </div>
             </form>
