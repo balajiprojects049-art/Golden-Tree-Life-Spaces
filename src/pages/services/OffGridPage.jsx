@@ -5,57 +5,39 @@ import { Link } from 'react-router-dom';
 const OffGridPage = () => {
   return (
     <div className="bg-slate-950 text-white min-h-screen">
-      {/* Cinematic Hero */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 opacity-40">
-          <img 
-            src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?q=80&w=2069&auto=format&fit=crop" 
-            alt="Off-Grid Remote Cabin" 
+      {/* Standardized Hero Section — min-h-[90vh] full bleed */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/hero-off-grid.png"
+            alt="Off-Grid Solar System"
             className="w-full h-full object-cover"
           />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-            className="max-w-3xl"
-          >
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-12 h-[1px] bg-amber-500"></span>
-              <span className="text-amber-500 font-bold uppercase tracking-widest text-sm">Energy Freedom</span>
-            </div>
-            <h1 className="font-heading font-black text-6xl md:text-8xl mb-8 leading-tight">
-              Power Beyond <br /> <span className="text-amber-500">The Limits</span>
-            </h1>
-            <p className="text-slate-300 text-xl md:text-2xl mb-12 font-light leading-relaxed">
-              Standalone energy solutions for the bold. High-capacity storage for remote residences, farms, and industrial sites where the grid simply cannot reach.
-            </p>
-            <Link to="/contact" className="inline-block bg-amber-500 text-slate-950 px-10 py-5 rounded-sm font-black uppercase tracking-tighter hover:bg-white transition-all transform hover:-translate-y-1">
-              Go Off-Grid Now
-            </Link>
-          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/30" />
         </div>
 
-        {/* Floating Battery Status Decor */}
-        <div className="absolute bottom-10 right-10 hidden xl:block">
-          <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800 p-8 rounded-2xl w-80">
-            <div className="flex justify-between items-center mb-4">
-              <span className="text-sm font-bold text-slate-400">System Status</span>
-              <span className="px-2 py-0.5 bg-green-500/20 text-green-500 text-[10px] font-bold rounded uppercase">Active</span>
-            </div>
-            <div className="text-4xl font-black mb-1">100<span className="text-amber-500">%</span></div>
-            <div className="text-xs text-slate-500 mb-6 uppercase tracking-widest">Battery Reserve Charged</div>
-            <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
-              <motion.div 
-                initial={{ width: 0 }}
-                animate={{ width: '100%' }}
-                transition={{ duration: 2, delay: 0.5 }}
-                className="h-full bg-amber-500"
-              />
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
+          <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-12 h-[1px] bg-amber-500"></span>
+                <span className="text-amber-500 font-bold uppercase tracking-widest text-sm">Energy Freedom</span>
+              </div>
+              <h1 className="font-heading font-black text-6xl md:text-8xl mb-8 leading-tight text-white">
+                Power Beyond <br /> <span className="text-amber-500">The Limits</span>
+              </h1>
+              <p className="text-slate-300 text-xl md:text-2xl mb-12 font-light leading-relaxed">
+                Standalone energy solutions for the bold. High-capacity storage for remote residences,
+                farms, and industrial sites where the grid simply cannot reach.
+              </p>
+              <Link to="/contact" className="inline-block bg-amber-500 text-slate-950 px-10 py-5 rounded-full font-black uppercase tracking-tighter hover:bg-white transition-all shadow-xl shadow-amber-500/20">
+                Go Off-Grid Now
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>

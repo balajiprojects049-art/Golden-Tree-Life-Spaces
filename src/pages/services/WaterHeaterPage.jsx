@@ -5,58 +5,44 @@ import { Link } from 'react-router-dom';
 const WaterHeaterPage = () => {
   return (
     <div className="bg-white min-h-screen">
-      {/* Soft Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-cyan-50 to-white overflow-hidden border-b border-cyan-100">
-        {/* Abstract water ripple backgrounds */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Standardized Hero Section — min-h-[90vh] full bleed */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/hero-water-heater.png"
+            alt="Solar Water Heater"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/75 to-cyan-900/30" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
+          <div className="max-w-2xl">
             <motion.div
-              initial={{ opacity:0, x: -50 }}
+              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
               <div className="flex items-center gap-3 mb-8">
-                <div className="p-2 bg-cyan-600 text-white rounded-lg shadow-lg">
+                <div className="p-2 bg-cyan-500/80 text-white rounded-lg shadow-lg">
                   <FiDroplet />
                 </div>
-                <span className="text-cyan-700 font-bold tracking-widest text-sm uppercase">Advanced Thermal Tech</span>
+                <span className="text-cyan-400 font-bold tracking-widest text-sm uppercase">Advanced Thermal Tech</span>
               </div>
-              <h1 className="font-heading font-black text-5xl md:text-7xl text-slate-900 mb-8 leading-tight">
-                Hot Water, <br /> <span className="text-cyan-600">Zero Electric Bill.</span>
+              <h1 className="font-heading font-black text-5xl md:text-7xl text-white mb-8 leading-tight">
+                Hot Water, <br /> <span className="text-cyan-400">Zero Electric Bill.</span>
               </h1>
-              <p className="text-slate-600 text-xl mb-12 leading-relaxed">
-                Harness high-efficiency solar thermal energy to provide your family with 24/7 hot water. Our systems save up to 75% on total water heating costs.
+              <p className="text-gray-300 text-xl mb-12 leading-relaxed">
+                Harness high-efficiency solar thermal energy to provide your family with 24/7 hot water.
+                Our systems save up to 75% on total water heating costs.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact" className="bg-cyan-600 text-white px-10 py-4 rounded-full font-bold shadow-xl hover:bg-slate-900 transition-all">
+                <Link to="/contact" className="bg-cyan-500 text-white px-10 py-4 rounded-full font-bold shadow-xl shadow-cyan-500/20 hover:bg-white hover:text-cyan-600 transition-all">
                   Get A Free Quote
                 </Link>
-                <div className="flex items-center gap-2 text-cyan-700 font-medium px-4 py-2 border border-cyan-200 rounded-full bg-white/50">
+                <div className="flex items-center gap-2 text-cyan-400 font-medium px-4 py-2 border border-cyan-500/40 rounded-full bg-white/5 backdrop-blur">
                   <FiCheckCircle /> MNRE Approved
                 </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              className="relative"
-            >
-              <div className="aspect-square bg-cyan-100 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] overflow-hidden relative shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Hot Water Luxury" 
-                  className="w-full h-full object-cover mix-blend-multiply opacity-80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-600/20 to-transparent" />
-              </div>
-              {/* Stats Overlay */}
-              <div className="absolute -bottom-10 -right-4 bg-white p-6 rounded-2xl shadow-2xl border border-cyan-50">
-                <div className="text-3xl font-black text-cyan-600">24/7</div>
-                <div className="text-xs text-slate-500 uppercase tracking-widest font-bold">Thermal Retention</div>
               </div>
             </motion.div>
           </div>

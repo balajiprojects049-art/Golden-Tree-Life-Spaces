@@ -5,51 +5,42 @@ import { Link } from 'react-router-dom';
 const WaterPumpingPage = () => {
   return (
     <div className="bg-white min-h-screen">
-      {/* Nature Hero */}
-      <section className="relative pt-24 pb-24 bg-[#f0f9ff]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Standardized Hero Section — min-h-[90vh] full bleed */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/hero-water-pump.png"
+            alt="Solar Water Pumping System"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/75 to-sky-900/30" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="flex items-center gap-2 mb-6 px-4 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-600 text-xs font-bold uppercase tracking-widest w-fit">
+              <div className="flex items-center gap-2 mb-6 px-4 py-1 rounded-full bg-sky-500/20 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-widest w-fit">
                 Sustainable Agriculture
               </div>
-              <h1 className="font-heading font-black text-5xl md:text-7xl text-slate-900 mb-8 leading-tight">
-                Flow with the <br /> <span className="text-sky-600">Morning Sun.</span>
+              <h1 className="font-heading font-black text-5xl md:text-7xl text-white mb-8 leading-tight">
+                Flow with the <br /> <span className="text-sky-400">Morning Sun.</span>
               </h1>
-              <p className="text-slate-600 text-xl mb-12 max-w-lg leading-relaxed">
-                Empowering farmers with high-performance solar water pumps. Reliable, fuel-free, and designed for life on the field.
+              <p className="text-gray-300 text-xl mb-12 leading-relaxed">
+                Empowering farmers with high-performance solar water pumps. Reliable, fuel-free,
+                and designed for life on the field.
               </p>
               <div className="flex items-center gap-8">
-                <Link to="/contact" className="bg-sky-600 text-white px-10 py-4 rounded-full font-bold hover:bg-slate-900 shadow-xl shadow-sky-600/20 transition-all">
+                <Link to="/contact" className="bg-sky-500 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-sky-600 shadow-xl shadow-sky-500/20 transition-all">
                   Get System Design
                 </Link>
-                <div className="hidden sm:block">
-                  <div className="text-slate-900 font-bold">100k+ Liters</div>
-                  <div className="text-slate-500 text-sm italic">Daily Output Potential</div>
+                <div>
+                  <div className="text-white font-bold text-xl">100k+ Liters</div>
+                  <div className="text-gray-400 text-sm italic">Daily Output Potential</div>
                 </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              className="relative"
-            >
-              <div className="rounded-[40%_60%_70%_30%/40%_50%_60%_40%] overflow-hidden aspect-square border-8 border-white shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1549495763-7eb9273cc0d1?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Solar Water Pump in Field" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-sky-100 max-w-[200px]">
-                <FiDroplet className="text-sky-500 text-3xl mb-3" />
-                <h4 className="font-bold text-slate-900 italic">No Fuel. No Grid. Just Water.</h4>
               </div>
             </motion.div>
           </div>

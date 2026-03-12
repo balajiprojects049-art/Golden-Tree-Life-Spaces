@@ -5,39 +5,38 @@ import { Link } from 'react-router-dom';
 const OnGridPage = () => {
   return (
     <div className="bg-white">
-      {/* Premium Hero - Split Design */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-slate-50">
-        <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-          <img 
-            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2070&auto=format&fit=crop" 
-            alt="Solar Panels" 
+      {/* Standardized Hero Section — min-h-[90vh] full bleed */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/hero-on-grid.png"
+            alt="On-Grid Solar System"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent to-slate-50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/75 to-slate-900/30" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="lg:w-1/2 pr-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="inline-block px-4 py-1.5 bg-blue-600 text-white text-xs font-bold tracking-[0.2em] uppercase rounded-full mb-6">
+              <span className="inline-block px-4 py-1.5 bg-blue-600/80 text-white text-xs font-bold tracking-[0.2em] uppercase rounded-full mb-6 border border-blue-500/40">
                 Grid-Interactive Solutions
               </span>
-              <h1 className="font-heading font-black text-5xl md:text-7xl text-slate-900 mb-6 leading-[1.1]">
-                Smart <span className="text-blue-600">On-Grid</span> <br />Connectivity
+              <h1 className="font-heading font-black text-5xl md:text-7xl text-white mb-6 leading-[1.1]">
+                Smart <span className="text-blue-400">On-Grid</span> <br />Connectivity
               </h1>
-              <p className="text-slate-600 text-xl mb-6 leading-relaxed max-w-lg">
+              <p className="text-gray-300 text-xl mb-6 leading-relaxed">
                 The most efficient way to solarize. Connect directly to the utility grid and watch your meter run backwards while saving up to 90% on your monthly bills.
               </p>
-              <p className="text-slate-500 mb-10 leading-relaxed max-w-lg italic">
+              <p className="text-gray-400 mb-10 leading-relaxed italic">
                 "Ideally suited for residences and businesses with a stable utility grid, offering the fastest ROI in the solar industry."
               </p>
-              
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact" className="bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-600 transition-all flex items-center gap-2 group">
+                <Link to="/contact" className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-blue-600 transition-all flex items-center gap-2 group shadow-xl shadow-blue-600/20">
                   Calculate My Savings <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>

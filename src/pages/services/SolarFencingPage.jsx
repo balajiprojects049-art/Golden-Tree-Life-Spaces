@@ -5,54 +5,44 @@ import { Link } from 'react-router-dom';
 const SolarFencingPage = () => {
   return (
     <div className="bg-slate-50 min-h-screen">
-      {/* Industrial Grid Hero */}
-      <section className="relative pt-24 pb-24 overflow-hidden bg-slate-900 text-white">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#22c55e_1px,transparent_1px)] [background-size:20px_20px]" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-3/5">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-              >
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded text-emerald-500 text-xs font-bold uppercase tracking-widest mb-6">
-                  <FiLock className="animate-pulse" /> Security Protocol Active
+      {/* Standardized Hero Section — min-h-[90vh] full bleed */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/hero-solar-fencing.png"
+            alt="Solar Electric Fencing"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/97 via-slate-900/80 to-slate-900/30" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6">
+                <FiLock className="animate-pulse" /> Security Protocol Active
+              </div>
+              <h1 className="font-heading font-black text-5xl md:text-8xl mb-8 tracking-tighter text-white">
+                Total <span className="text-emerald-400 font-black">Defense</span>
+              </h1>
+              <p className="text-gray-400 text-xl mb-12 font-light leading-relaxed">
+                Smart, non-lethal, and self-powered perimeter security. Create a psychological and
+                physical barrier that stops intruders before they even touch your boundary.
+              </p>
+              <div className="flex flex-wrap gap-6">
+                <Link to="/contact" className="bg-emerald-500 text-slate-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-emerald-500/20">
+                  System Design
+                </Link>
+                <div className="flex items-center gap-3 text-slate-400 text-sm italic">
+                  <FiAlertTriangle className="text-emerald-400" />
+                  Compliant with IEC 60335-2-76
                 </div>
-                <h1 className="font-heading font-black text-5xl md:text-8xl mb-8 tracking-tighter italic italic-none">
-                  Total <span className="text-emerald-500 font-black">Defense</span>
-                </h1>
-                <p className="text-slate-400 text-xl mb-12 max-w-xl font-light leading-relaxed">
-                  Smart, non-lethal, and self-powered perimeter security. Create a psychological and physical barrier that stops intruders before they even touch your boundary.
-                </p>
-                <div className="flex flex-wrap gap-6">
-                  <Link to="/contact" className="bg-emerald-500 text-slate-900 px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-white transition-all">
-                    System Design
-                  </Link>
-                  <div className="flex items-center gap-3 text-slate-500 text-sm italic">
-                    <FiAlertTriangle className="text-emerald-500" />
-                    Compliant with IEC 60335-2-76
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-            <div className="lg:w-2/5 relative">
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative z-10 rounded-sm border-8 border-slate-800 shadow-2xl overflow-hidden"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1549495763-7eb9273cc0d1?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Industrial Fencing" 
-                  className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700"
-                />
-              </motion.div>
-              <div className="absolute -top-10 -left-10 w-40 h-40 border-t-2 border-l-2 border-emerald-500/30" />
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 border-b-2 border-r-2 border-emerald-500/30" />
-            </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

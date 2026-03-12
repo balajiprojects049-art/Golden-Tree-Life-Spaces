@@ -5,57 +5,47 @@ import { Link } from 'react-router-dom';
 const CctvPage = () => {
   return (
     <div className="bg-[#050a15] text-white min-h-screen selection:bg-blue-500/30">
-      {/* HUD-Style Hero */}
-      <section className="relative pt-24 pb-24 overflow-hidden">
-        {/* Animated Tech Background */}
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-600/10 to-transparent" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-20">
-            <div className="lg:w-1/2">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-blue-600/10 border border-blue-600/30 text-blue-400 text-xs font-mono mb-8">
-                  <span className="w-2 h-2 bg-red-500 rounded-full animate-ping" />
-                  SYSTEM STATUS: SECURED
-                </div>
-                <h1 className="font-heading font-black text-6xl md:text-8xl mb-8 tracking-tight uppercase italic italic-none">
-                  Solar <span className="text-blue-500">Sentinel</span>
-                </h1>
-                <p className="text-slate-400 text-xl mb-12 max-w-lg leading-relaxed font-light">
-                  Self-powered surveillance for the digital age. 24/7 HD monitoring with zero dependency on grid or wires.
-                </p>
-                <div className="flex flex-wrap gap-8 items-center">
-                  <Link to="/contact" className="bg-blue-600 text-white px-10 py-4 rounded-sm font-bold skew-x-[-12deg] hover:bg-white hover:text-blue-600 transition-all">
-                    DEPLOY SYSTEM
-                  </Link>
-                  <div className="text-xs font-mono text-slate-500">
-                    LAT: 28.6139° N <br />
-                    LNG: 77.2090° E
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+      {/* Standardized Hero Section — min-h-[90vh] full bleed */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/hero-cctv.png"
+            alt="Solar CCTV Surveillance System"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050a15]/97 via-[#050a15]/80 to-[#050a15]/30" />
+          {/* Tech grid overlay */}
+          <div className="absolute inset-0 opacity-5 bg-[linear-gradient(90deg,rgba(59,130,246,0.5)_1px,transparent_1px),linear-gradient(rgba(59,130,246,0.5)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        </div>
 
-            <div className="lg:w-1/2 relative group">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1 }}
-                className="relative z-10 rounded-2xl border border-blue-500/30 p-2 bg-blue-500/5 backdrop-blur-3xl overflow-hidden"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Solar CCTV" 
-                  className="w-full rounded-xl opacity-80 group-hover:opacity-100 transition-opacity"
-                />
-                <div className="absolute inset-0 border-[20px] border-transparent border-t-blue-500/20 border-l-blue-500/20 pointer-events-none" />
-              </motion.div>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-blue-600/10 border border-blue-600/30 text-blue-400 text-xs font-mono mb-8">
+                <span className="w-2 h-2 bg-red-500 rounded-full animate-ping" />
+                SYSTEM STATUS: SECURED
+              </div>
+              <h1 className="font-heading font-black text-6xl md:text-8xl mb-8 tracking-tight uppercase text-white">
+                Solar <span className="text-blue-500">Sentinel</span>
+              </h1>
+              <p className="text-slate-400 text-xl mb-12 leading-relaxed font-light">
+                Self-powered surveillance for the digital age. 24/7 HD monitoring with zero
+                dependency on grid or wires.
+              </p>
+              <div className="flex flex-wrap gap-8 items-center">
+                <Link to="/contact" className="bg-blue-600 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-blue-600 transition-all shadow-xl shadow-blue-600/20">
+                  DEPLOY SYSTEM
+                </Link>
+                <div className="text-xs font-mono text-slate-500">
+                  4G/LTE Connected <br />
+                  AI-Powered Detection
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
