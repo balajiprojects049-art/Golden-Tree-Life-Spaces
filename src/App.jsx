@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
+import ConsultationPage from './pages/ConsultationPage';
 // Individual Service Pages
 import OnGridPage from './pages/services/OnGridPage';
 import OffGridPage from './pages/services/OffGridPage';
@@ -42,6 +43,7 @@ function App() {
           <Route path="/services/street-light" element={<StreetLightPage />} />
           <Route path="/services/cctv" element={<CctvPage />} />
           <Route path="/services/water-pumping" element={<WaterPumpingPage />} />
+          <Route path="/free-consultation" element={<ConsultationPage />} />
         </Routes>
       </main>
       <Footer />

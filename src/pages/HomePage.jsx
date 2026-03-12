@@ -4,12 +4,16 @@ import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Contact from '../components/Contact';
 import SocialMedia from '../components/SocialMedia';
+import ConsultationBanner from '../components/ConsultationBanner';
+import ProcessSteps from '../components/ProcessSteps';
 
 const HomePage = () => {
   return (
     <>
       <Hero />
+      <ConsultationBanner />
       <About />
+      <ProcessSteps />
       <Services />
       <WhyChooseUs />
       <SocialMedia />
