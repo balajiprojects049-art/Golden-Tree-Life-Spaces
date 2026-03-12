@@ -52,33 +52,37 @@ const WaterHeaterPage = () => {
       {/* Modern Education Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
             <div>
-              <h2 className="font-heading font-black text-4xl text-slate-900 mb-8 italic">The Science of Solar Heating</h2>
-              <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+              <h2 className="font-heading font-black text-4xl md:text-5xl text-slate-900 mb-10 italic">The Science of Solar Heating</h2>
+              <div className="space-y-8 text-slate-600 text-lg leading-relaxed">
                 <p>
-                  Our solar water heaters utilize sophisticated <strong>Evacuated Tube Collector (ETC)</strong> technology. Each tube acts like a giant thermos—absorbing sunlight and converting it into heat, then trapping that heat within a vacuum layer to prevent any loss back to the atmosphere.
+                  Our solar water heaters utilize sophisticated <strong className="text-slate-900">Evacuated Tube Collector (ETC)</strong> technology. Each tube acts like a giant thermos—absorbing sunlight and converting it into heat, then trapping that heat within a vacuum layer to prevent any loss back to the atmosphere.
                 </p>
                 <p>
-                  For areas with high wind or industrial requirements, we also provide <strong>Flat Plate Collector (FPC)</strong> systems, known for their rugged durability and high-pressure performance.
+                  For areas with high wind or industrial requirements, we also provide <strong className="text-slate-900">Flat Plate Collector (FPC)</strong> systems, known for their rugged durability and high-pressure performance.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6 mt-12">
-                  <div className="p-5 bg-slate-50 rounded-xl border border-slate-100">
-                    <FiThermometer className="text-cyan-600 text-2xl mb-3" />
-                    <h4 className="font-bold text-slate-900 mb-1">Max Retention</h4>
-                    <p className="text-xs">High-density PUF insulation keeps water hot for up to 48 hours.</p>
+                  <div className="p-8 bg-[#f8fafc] rounded-3xl border border-slate-100 flex flex-col items-start gap-4">
+                    <FiThermometer className="text-cyan-500 text-3xl" />
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-xl mb-2">Max Retention</h4>
+                      <p className="text-sm text-slate-500 leading-relaxed font-medium">High-density PUF insulation keeps water hot for up to 48 hours.</p>
+                    </div>
                   </div>
-                  <div className="p-5 bg-slate-50 rounded-xl border border-slate-100">
-                    <FiSettings className="text-cyan-600 text-2xl mb-3" />
-                    <h4 className="font-bold text-slate-900 mb-1">Scale Resistant</h4>
-                    <p className="text-xs">Optional enamel-coated tanks for areas with hard water content.</p>
+                  <div className="p-8 bg-[#f8fafc] rounded-3xl border border-slate-100 flex flex-col items-start gap-4">
+                    <FiSettings className="text-cyan-500 text-3xl" />
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-xl mb-2">Scale Resistant</h4>
+                      <p className="text-sm text-slate-500 leading-relaxed font-medium">Optional enamel-coated tanks for areas with hard water content.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1614947702046-8889a7702f50?q=80&w=2070&auto=format&fit=crop"
+                src="/Services/Water_Heater_Installation.jpg"
                 alt="Solar Heater Installation"
                 className="w-full h-auto"
               />
