@@ -5,12 +5,14 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import Contact from '../components/Contact';
 import SocialMedia from '../components/SocialMedia';
 import ConsultationBanner from '../components/ConsultationBanner';
+import NewsTicker from '../components/NewsTicker';
 import ProcessSteps from '../components/ProcessSteps';
 
 const HomePage = () => {
   return (
     <>
       <Hero />
+      <NewsTicker />
       <ConsultationBanner />
       <About />
       <ProcessSteps />
