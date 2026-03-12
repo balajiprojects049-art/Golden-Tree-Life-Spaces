@@ -44,7 +44,7 @@ const ContactPage = () => {
               Reach out for a free consultation today.
             </motion.p>
             <motion.a
-              href="tel:+919999999999"
+              href="tel:+919885848445"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -57,6 +57,28 @@ const ContactPage = () => {
       </section>
 
       <Contact />
+
+      {/* Quick Help / FAQ for Contact Page */}
+      <section className="py-20 bg-slate-50 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-black text-slate-900 mb-4">Quick Help</h3>
+            <p className="text-slate-500">Common questions before you reach out.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { q: 'What is the first step?', a: 'We always start with a free site survey to assess your roof and energy needs.' },
+              { q: 'Do you handle subsidies?', a: 'Yes, we handle all MNRE and state subsidy documentation for you.' },
+              { q: 'How fast is the installation?', a: 'Physical installation usually takes 2-3 days after approvals.' }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <h4 className="font-bold text-slate-900 mb-3">{faq.q}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

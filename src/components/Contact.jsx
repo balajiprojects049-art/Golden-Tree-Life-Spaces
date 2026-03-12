@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiPhone, FiMail, FiMapPin, FiCheckCircle } from 'react-icons/fi';
+import { FiPhone, FiMail, FiMapPin, FiCheckCircle, FiClock, FiSend } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -12,170 +13,228 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    
+    // Construct WhatsApp message
+    const message = `*New Contact Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Email:* ${formData.email}%0A*Requirements:* ${formData.message}%0A%0A_Sent from Contact Page_`;
+    const whatsappUrl = `https://wa.me/919885848445?text=${message}`;
+    
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 1200);
+      window.open(whatsappUrl, '_blank');
+    }, 1000);
   };
 
+  const contactInfo = [
+    { 
+      icon: FiPhone, 
+      label: 'Call Us Anytime', 
+      content: '+91 98858 48445', 
+      link: 'tel:9885848445',
+      color: 'bg-green-500' 
+    },
+    { 
+      icon: FaWhatsapp, 
+      label: 'WhatsApp Support', 
+      content: 'Chat with Experts', 
+      link: 'https://wa.me/919885848445',
+      color: 'bg-[#25D366]' 
+    },
+    { 
+      icon: FiMail, 
+      label: 'Email Address', 
+      content: 'goldentreelifespaces@gmail.com', 
+      link: 'mailto:goldentreelifespaces@gmail.com',
+      color: 'bg-blue-500' 
+    }
+  ];
+
   const locations = [
-    { label: 'Corporate Office Location', href: 'https://maps.app.goo.gl/mJ7KmwNpC33cUUVK9' },
-    { label: 'Branch / Experience Center', href: 'https://maps.app.goo.gl/htXECBkvr7K7GYyg8' }
+    { 
+      name: 'Corporate Office', 
+      addr: 'Nellore, Andhra Pradesh', 
+      link: 'https://maps.app.goo.gl/mJ7KmwNpC33cUUVK9' 
+    },
+    { 
+      name: 'Experience Center', 
+      addr: 'Visit our Solar Lab', 
+      link: 'https://maps.app.goo.gl/htXECBkvr7K7GYyg8' 
+    }
   ];
 
   return (
-    <section className="py-12 lg:py-16 bg-light-gray relative">
+    <section className="py-20 lg:py-24 bg-white relative overflow-hidden" id="contact">
+      {/* Dynamic Background Elements */}
+      <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-green-50 rounded-full blur-[120px] -z-10 opacity-60" />
+      <div className="absolute bottom-0 left-0 w-[30%] h-[30%] bg-blue-50 rounded-full blur-[100px] -z-10 opacity-40" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="text-primary font-bold tracking-wider uppercase text-sm mb-4">Get In Touch</div>
-          <h2 className="section-heading mb-4">
-            Request a <span className="text-primary">Free Quote</span>
-          </h2>
-          <p className="section-subheading">
-            Fill out the form below or contact us directly. Our solar experts are ready to guide you.
-          </p>
-        </motion.div>
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          
+          {/* Left Side: Info & Presence */}
+          <div className="lg:col-span-5">
+            <motion.div
+              ref={ref}
+              initial={{ opacity: 0, x: -30 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                Let's Build Your <br />
+                <span className="text-green-600">Energy Future.</span>
+              </h2>
+              <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-md">
+                Have questions about net-metering, subsidies, or system sizing? 
+                Our engineers are standing by to provide a free site survey.
+              </p>
 
-        <div className="grid lg:grid-cols-5 gap-12 bg-white rounded-2xl shadow-clean border border-gray-100 overflow-hidden">
-          {/* Left: Info */}
-          <div className="lg:col-span-2 bg-slate-900 text-white p-10 flex flex-col justify-between">
-            <div>
-              <h3 className="font-heading font-bold text-3xl mb-2">Let's talk solar</h3>
-              <p className="text-gray-400 mb-10 text-sm">We provide customized 3D design and cost analysis.</p>
+              <div className="space-y-6 mb-12">
+                {contactInfo.map((info, i) => (
+                  <a 
+                    key={i} 
+                    href={info.link}
+                    className="flex items-center gap-5 p-4 rounded-2xl border border-slate-100 hover:border-green-200 hover:bg-green-50/30 transition-all group shadow-sm bg-white"
+                  >
+                    <div className={`${info.color} w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl shadow-lg`}>
+                      <info.icon />
+                    </div>
+                    <div>
+                      <div className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-0.5">{info.label}</div>
+                      <div className="text-slate-900 font-bold group-hover:text-green-600 transition-colors">{info.content}</div>
+                    </div>
+                  </a>
+                ))}
+              </div>
 
-              <div className="space-y-8">
-                <a href="tel:9885848445" className="flex items-start gap-4 hover:text-primary transition-colors group">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-primary/20">
-                    <FiPhone className="text-xl" />
+              <div className="bg-slate-900 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-2xl">
+                <div className="absolute top-0 right-0 p-8 opacity-10">
+                  <FiClock className="text-6xl" />
+                </div>
+                <h4 className="flex items-center gap-2 text-green-400 font-bold text-sm mb-6 uppercase tracking-widest">
+                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                  Business Hours
+                </h4>
+                <div className="grid grid-cols-2 gap-8 relative z-10">
+                  <div>
+                    <div className="text-slate-400 text-xs mb-1">Monday - Saturday</div>
+                    <div className="font-bold">9:00 AM - 6:30 PM</div>
                   </div>
                   <div>
-                    <div className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">Phone Number</div>
-                    <div className="font-medium text-lg">+91 98858 48445</div>
+                    <div className="text-slate-400 text-xs mb-1">Sunday</div>
+                    <div className="font-bold text-slate-500 italic">By Appointment Only</div>
                   </div>
-                </a>
+                </div>
+                
+                <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-4">
+                  {locations.map((loc, i) => (
+                    <a 
+                      key={i} 
+                      href={loc.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-300 hover:text-green-400 transition-colors flex items-center gap-2"
+                    >
+                      <FiMapPin className="text-green-400" /> {loc.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
-                <a href="mailto:goldentreelifespaces@gmail.com" className="flex items-start gap-4 hover:text-primary transition-colors group">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-primary/20">
-                    <FiMail className="text-xl" />
+          {/* Right Side: Advanced Contact Form */}
+          <div className="lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.8 }}
+              className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] border border-slate-100 p-8 md:p-12 relative"
+            >
+              {submitted ? (
+                <div className="text-center py-12">
+                  <div className="w-24 h-24 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce">
+                    <FiCheckCircle className="text-5xl" />
                   </div>
-                  <div>
-                    <div className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">Email Address</div>
-                    <div className="font-medium">goldentreelifespaces@gmail.com</div>
-                  </div>
-                </a>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                    <FiMapPin className="text-xl" />
-                  </div>
-                  <div>
-                    <div className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-2">Office Maps</div>
-                    <div className="flex flex-col gap-3">
-                      {locations.map((loc, i) => (
-                        <a
-                          key={i}
-                          href={loc.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-2"
-                        >
-                          → {loc.label}
-                        </a>
-                      ))}
+                  <h3 className="text-3xl font-black text-slate-900 mb-4">Request Sent!</h3>
+                  <p className="text-slate-500 mb-8">We've received your request and redirected you to WhatsApp for instant support.</p>
+                  <button 
+                    onClick={() => setSubmitted(false)}
+                    className="text-green-600 font-bold hover:underline"
+                  >
+                    Send another query
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="space-y-2.5">
+                      <label className="text-sm font-bold text-slate-700 ml-1">Your Name</label>
+                      <input 
+                        required
+                        type="text" 
+                        placeholder="John Doe"
+                        className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-green-500 focus:ring-4 focus:ring-green-500/10 outline-none transition-all"
+                        value={formData.name}
+                        onChange={e => setFormData({...formData, name: e.target.value})}
+                      />
+                    </div>
+                    <div className="space-y-2.5">
+                      <label className="text-sm font-bold text-slate-700 ml-1">Phone Number</label>
+                      <input 
+                        required
+                        type="tel" 
+                        placeholder="+91 00000 00000"
+                        className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-green-500 focus:ring-4 focus:ring-green-500/10 outline-none transition-all"
+                        value={formData.phone}
+                        onChange={e => setFormData({...formData, phone: e.target.value})}
+                      />
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
 
-            <div className="mt-12 text-sm text-gray-400 border-t border-white/10 pt-6">
-              Working Hours: Mon-Sat, 9:00 AM - 6:00 PM
-            </div>
-          </div>
-
-          {/* Right: Form */}
-          <div className="lg:col-span-3 p-10 lg:p-14">
-            {submitted ? (
-              <div className="flex flex-col items-center justify-center h-full text-center py-20">
-                <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6">
-                  <FiCheckCircle className="text-primary text-4xl" />
-                </div>
-                <h3 className="font-heading font-bold text-3xl text-gray-900 mb-3">Message Received!</h3>
-                <p className="text-gray-600 mb-8 max-w-sm mx-auto">
-                  Thank you for reaching out. A Golden Tree solar consultant will contact you within 24 hours.
-                </p>
-                <button
-                  className="btn-secondary"
-                  onClick={() => { setSubmitted(false); setFormData({ name: '', phone: '', email: '', message: '' }); }}
-                >
-                  Send Another Message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-gray-700">Full Name</label>
-                    <input
-                      type="text"
+                  <div className="space-y-2.5">
+                    <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
+                    <input 
                       required
-                      className="w-full bg-light-gray border border-gray-200 focus:border-primary focus:bg-white rounded-md px-4 py-3 outline-none transition-colors"
-                      value={formData.name}
-                      onChange={e => setFormData({ ...formData, name: e.target.value })}
+                      type="email" 
+                      placeholder="john@example.com"
+                      className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-green-500 focus:ring-4 focus:ring-green-500/10 outline-none transition-all"
+                      value={formData.email}
+                      onChange={e => setFormData({...formData, email: e.target.value})}
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-gray-700">Phone Number</label>
-                    <input
-                      type="tel"
+
+                  <div className="space-y-2.5">
+                    <label className="text-sm font-bold text-slate-700 ml-1">Tell us about your requirements</label>
+                    <textarea 
                       required
-                      className="w-full bg-light-gray border border-gray-200 focus:border-primary focus:bg-white rounded-md px-4 py-3 outline-none transition-colors"
-                      value={formData.phone}
-                      onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                      rows={4}
+                      placeholder="I'm interested in a 5kW on-grid solar system for my residence..."
+                      className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-green-500 focus:ring-4 focus:ring-green-500/10 outline-none transition-all resize-none"
+                      value={formData.message}
+                      onChange={e => setFormData({...formData, message: e.target.value})}
                     />
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Email Address</label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full bg-light-gray border border-gray-200 focus:border-primary focus:bg-white rounded-md px-4 py-3 outline-none transition-colors"
-                    value={formData.email}
-                    onChange={e => setFormData({ ...formData, email: e.target.value })}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">Your Requirements</label>
-                  <textarea
-                    required
-                    rows={4}
-                    placeholder="E.g., I want solar for my home, monthly bill is around ₹3000..."
-                    className="w-full bg-light-gray border border-gray-200 focus:border-primary focus:bg-white rounded-md px-4 py-3 outline-none transition-colors resize-none"
-                    value={formData.message}
-                    onChange={e => setFormData({ ...formData, message: e.target.value })}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="btn-primary w-full py-4 text-lg disabled:opacity-70 disabled:cursor-not-allowed"
-                >
-                  {loading ? 'Submitting...' : 'Request Free Quote'}
-                </button>
-              </form>
-            )}
+                  <button 
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-slate-900 hover:bg-slate-800 text-white font-black py-5 rounded-2xl transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 group relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    <span className="relative z-10 uppercase tracking-widest text-sm">
+                      {loading ? 'Processing...' : 'Request Free Quote'}
+                    </span>
+                    <FiSend className={`text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 ${loading ? 'animate-pulse' : ''}`} />
+                  </button>
+                  
+                  <p className="text-center text-slate-400 text-[10px] uppercase font-bold tracking-[0.2em]">
+                    Instant response guaranteed within 24 hours
+                  </p>
+                </form>
+              )}
+            </motion.div>
           </div>
+
         </div>
       </div>
     </section>
