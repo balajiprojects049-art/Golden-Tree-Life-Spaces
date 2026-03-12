@@ -53,7 +53,7 @@ const OnGridPage = () => {
               <h2 className="font-heading font-bold text-4xl text-slate-900 mb-8">How it Transforms Your Energy Consumption</h2>
               <div className="prose prose-slate lg:prose-lg text-slate-600 max-w-none">
                 <p>
-                  An <strong>On-Grid Solar System</strong> is your primary gateway to energy independence within the urban landscape. Unlike traditional setups, this system is directly integrated with your local utility provider. 
+                  An <strong>On-Grid Solar System</strong> is your primary gateway to energy independence within the urban landscape. Unlike traditional setups, this system is directly integrated with your local utility provider.
                 </p>
                 <p>
                   During the peak daylight hours, your solar panels generate pure DC electricity, which is then converted by high-efficiency inverters into AC power for your home or business. If your generation exceeds your consumption, the <strong>Net-Metering</strong> mechanism automatically exports the surplus to the grid, earning you credits that significantly offset your night-time usage.
@@ -124,7 +124,7 @@ const OnGridPage = () => {
                 { title: 'Remote Monitoring', desc: 'Track your solar generation and export credits in real-time via our dedicated mobile app.', icon: FiActivity },
                 { title: 'Scalable Design', desc: 'Easily add more panels as your energy needs grow—without replacing the whole system.', icon: FiHome }
               ].map((f, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -148,21 +148,21 @@ const OnGridPage = () => {
               <h3 className="text-2xl font-bold uppercase tracking-widest italic italic-none">System Specifications</h3>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 border-t border-slate-100">
-               {[
-                 { label: 'System Capacity', val: '1kW to 500kW+' },
-                 { label: 'Solar Modules', val: 'Mono PERC Half-cut' },
-                 { label: 'Inverter Type', val: 'Pure Sine Wave String' },
-                 { label: 'Efficiency', val: 'Up to 98.7%' },
-                 { label: 'Grid Support', val: '230V / 415V AC' },
-                 { label: 'Protection', val: 'IP65 / IP66 Rated' },
-                 { label: 'Certification', val: 'MNRE / BIS / UL' },
-                 { label: 'Warranty', val: '25 Years Performance' }
-               ].map((spec, i) => (
-                 <div key={i} className="p-8 border-r border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                   <div className="text-[10px] text-blue-600 font-bold uppercase tracking-widest mb-2">{spec.label}</div>
-                   <div className="text-slate-900 font-bold">{spec.val}</div>
-                 </div>
-               ))}
+              {[
+                { label: 'System Capacity', val: '1kW to 500kW+' },
+                { label: 'Solar Modules', val: 'Mono PERC Half-cut' },
+                { label: 'Inverter Type', val: 'Pure Sine Wave String' },
+                { label: 'Efficiency', val: 'Up to 98.7%' },
+                { label: 'Grid Support', val: '230V / 415V AC' },
+                { label: 'Protection', val: 'IP65 / IP66 Rated' },
+                { label: 'Certification', val: 'MNRE / BIS / UL' },
+                { label: 'Warranty', val: '25 Years Performance' }
+              ].map((spec, i) => (
+                <div key={i} className="p-8 border-r border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                  <div className="text-[10px] text-blue-600 font-bold uppercase tracking-widest mb-2">{spec.label}</div>
+                  <div className="text-slate-900 font-bold">{spec.val}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

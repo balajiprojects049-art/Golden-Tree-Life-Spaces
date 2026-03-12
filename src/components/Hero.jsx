@@ -11,7 +11,7 @@ const slides = [
   { src: '/Home_Page/Hero_5.png', alt: 'Clean Solar Energy India' },
 ];
 
-const SLIDE_DURATION = 5000; // 5 seconds per slide
+const SLIDE_DURATION = 4000; // 5 seconds per slide
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
@@ -149,11 +149,10 @@ const Hero = () => {
         {slides.map((_, i) => (
           <div
             key={i}
-            className={`transition-all duration-700 rounded-full ${
-              i === current
-                ? 'w-8 h-3 bg-green-400'
-                : 'w-3 h-3 bg-white/30'
-            }`}
+            className={`transition-all duration-700 rounded-full ${i === current
+              ? 'w-8 h-3 bg-green-400'
+              : 'w-3 h-3 bg-white/30'
+              }`}
           />
         ))}
       </div>

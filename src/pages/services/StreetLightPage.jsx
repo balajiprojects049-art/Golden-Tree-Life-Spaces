@@ -49,8 +49,8 @@ const StreetLightPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
             <div>
-               <h2 className="font-heading font-black text-4xl mb-8 text-yellow-400 uppercase tracking-tighter">Smart Illumination</h2>
-               <div className="text-slate-400 space-y-6 text-lg">
+              <h2 className="font-heading font-black text-4xl mb-8 text-yellow-400 uppercase tracking-tighter">Smart Illumination</h2>
+              <div className="text-slate-400 space-y-6 text-lg">
                 <p>
                   Our <strong>All-In-One Solar Street Lights</strong> are the pinnacle of urban lighting technology. By integrating high-efficiency monocrystalline solar panels, ultra-bright LED luminaires, and long-life Lithium-ion storage into a single housing, we eliminate the need for complicated underground wiring and recurring electricity costs.
                 </p>
@@ -58,14 +58,14 @@ const StreetLightPage = () => {
                   Each unit is equipped with a <strong>Microwave Motion Sensor</strong>. During times of no activity, the light dims to 30% brightness to conserve battery, instantly jumping back to 100% when a vehicle or pedestrian is detected.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6 mt-12 font-mono">
-                   <div className="flex items-center gap-3 text-sm text-yellow-500/80 border border-yellow-500/20 p-4 rounded bg-yellow-500/5">
-                      <FiCpu className="shrink-0" /> AUTO-SYNC SENSORS
-                   </div>
-                   <div className="flex items-center gap-3 text-sm text-yellow-500/80 border border-yellow-500/20 p-4 rounded bg-yellow-500/5">
-                      <FiShield className="shrink-0" /> IP65 WATERPROOF
-                   </div>
+                  <div className="flex items-center gap-3 text-sm text-yellow-500/80 border border-yellow-500/20 p-4 rounded bg-yellow-500/5">
+                    <FiCpu className="shrink-0" /> AUTO-SYNC SENSORS
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-yellow-500/80 border border-yellow-500/20 p-4 rounded bg-yellow-500/5">
+                    <FiShield className="shrink-0" /> IP65 WATERPROOF
+                  </div>
                 </div>
-               </div>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
@@ -94,7 +94,7 @@ const StreetLightPage = () => {
               { title: 'LiFePO4 Storage', desc: 'Latest lithium iron phosphate battery tech provides 2500+ charge cycles and 5+ years of zero-maintenance life.', icon: FiZap },
               { title: 'Motion Dimming', desc: 'Smart PIR/Microwave sensors dim lights when no motion is detected, extending battery backup by up to 2 rainy days.', icon: FiMoon }
             ].map((f, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -112,37 +112,37 @@ const StreetLightPage = () => {
 
           {/* Lighting Intensity Matrix */}
           <div className="bg-slate-900 rounded-[2rem] border border-slate-800 overflow-hidden shadow-2xl">
-             <div className="p-10 bg-gradient-to-r from-slate-900 to-yellow-900/10 border-b border-slate-800">
-                <h3 className="text-2xl font-black text-white italic italic-none tracking-tighter uppercase">Lighting Intensity Matrix</h3>
-                <p className="text-yellow-500 font-bold text-[10px] mt-1 tracking-widest">SYSTEM PERFORMANCE DATA</p>
-             </div>
-             <div className="overflow-x-auto">
-                <table className="w-full text-left">
-                  <thead>
-                    <tr className="bg-slate-950/50 text-slate-500 text-[10px] uppercase tracking-[0.3em] font-mono">
-                      <th className="p-6">Model Wattage</th>
-                      <th className="p-6">Luminous Flux</th>
-                      <th className="p-6">Mounting Height</th>
-                      <th className="p-6">Illumination Area</th>
+            <div className="p-10 bg-gradient-to-r from-slate-900 to-yellow-900/10 border-b border-slate-800">
+              <h3 className="text-2xl font-black text-white italic italic-none tracking-tighter uppercase">Lighting Intensity Matrix</h3>
+              <p className="text-yellow-500 font-bold text-[10px] mt-1 tracking-widest">SYSTEM PERFORMANCE DATA</p>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="bg-slate-950/50 text-slate-500 text-[10px] uppercase tracking-[0.3em] font-mono">
+                    <th className="p-6">Model Wattage</th>
+                    <th className="p-6">Luminous Flux</th>
+                    <th className="p-6">Mounting Height</th>
+                    <th className="p-6">Illumination Area</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-800">
+                  {[
+                    { w: '30W LED', lm: '5400 lm', h: '4-5 Meters', a: '10-15 Meters' },
+                    { w: '60W LED', lm: '10800 lm', h: '6-8 Meters', a: '20-25 Meters' },
+                    { w: '100W LED', lm: '18000 lm', h: '8-10 Meters', a: '30-35 Meters' },
+                    { w: '120W+ LED', lm: 'High Intensity', h: '12+ Meters', a: 'Custom Grid' }
+                  ].map((row, i) => (
+                    <tr key={i} className="hover:bg-yellow-400/5 transition-colors group">
+                      <td className="p-6 font-black text-yellow-400 group-hover:translate-x-1 transition-transform">{row.w}</td>
+                      <td className="p-6 text-slate-300 font-mono text-sm">{row.lm}</td>
+                      <td className="p-6 text-slate-400 text-sm">{row.h}</td>
+                      <td className="p-6 text-white font-medium italic">{row.a}</td>
                     </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800">
-                    {[
-                      { w: '30W LED', lm: '5400 lm', h: '4-5 Meters', a: '10-15 Meters' },
-                      { w: '60W LED', lm: '10800 lm', h: '6-8 Meters', a: '20-25 Meters' },
-                      { w: '100W LED', lm: '18000 lm', h: '8-10 Meters', a: '30-35 Meters' },
-                      { w: '120W+ LED', lm: 'High Intensity', h: '12+ Meters', a: 'Custom Grid' }
-                    ].map((row, i) => (
-                      <tr key={i} className="hover:bg-yellow-400/5 transition-colors group">
-                        <td className="p-6 font-black text-yellow-400 group-hover:translate-x-1 transition-transform">{row.w}</td>
-                        <td className="p-6 text-slate-300 font-mono text-sm">{row.lm}</td>
-                        <td className="p-6 text-slate-400 text-sm">{row.h}</td>
-                        <td className="p-6 text-white font-medium italic">{row.a}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-             </div>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>

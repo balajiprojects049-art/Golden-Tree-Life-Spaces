@@ -77,9 +77,9 @@ const WaterHeaterPage = () => {
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-               <img 
-                src="https://images.unsplash.com/photo-1614947702046-8889a7702f50?q=80&w=2070&auto=format&fit=crop" 
-                alt="Solar Heater Installation" 
+              <img
+                src="https://images.unsplash.com/photo-1614947702046-8889a7702f50?q=80&w=2070&auto=format&fit=crop"
+                alt="Solar Heater Installation"
                 className="w-full h-auto"
               />
             </div>
@@ -96,7 +96,7 @@ const WaterHeaterPage = () => {
               { title: 'Food-Grade Tank', desc: 'Inner tanks built with premium SS304/L stainless steel for absolute hygiene.', icon: FiShield },
               { title: 'Rapid Payback', desc: 'A system that pays for itself in 18-24 months through electricity savings.', icon: FiTrendingUp }
             ].map((f, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -125,20 +125,20 @@ const WaterHeaterPage = () => {
               </Link>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 divide-x divide-slate-800">
-               {[
-                 { label: 'System Type', val: 'ETC (Evacuated Tube)', sub: 'Best for Cold Climates' },
-                 { label: 'Storage Capacity', val: '100LPD to 5000LPD+', sub: 'Scalable for Industry' },
-                 { label: 'Max Heat Gain', val: '80°C - 85°C', sub: 'In standard sunlight' },
-                 { label: 'Tank Material', val: 'SS304 / Enamel Coat', sub: 'Hard Water Compatible' }
-               ].map((spec, i) => (
-                 <div key={i} className="p-8 hover:bg-white/5 transition-colors">
-                   <div className="text-[10px] text-cyan-500 font-bold uppercase tracking-[0.2em] mb-4">{spec.label}</div>
-                   <div className="text-xl font-bold text-white mb-1">{spec.val}</div>
-                   <div className="text-slate-500 text-xs italic">{spec.sub}</div>
-                 </div>
-               ))}
+              {[
+                { label: 'System Type', val: 'ETC (Evacuated Tube)', sub: 'Best for Cold Climates' },
+                { label: 'Storage Capacity', val: '100LPD to 5000LPD+', sub: 'Scalable for Industry' },
+                { label: 'Max Heat Gain', val: '80°C - 85°C', sub: 'In standard sunlight' },
+                { label: 'Tank Material', val: 'SS304 / Enamel Coat', sub: 'Hard Water Compatible' }
+              ].map((spec, i) => (
+                <div key={i} className="p-8 hover:bg-white/5 transition-colors">
+                  <div className="text-[10px] text-cyan-500 font-bold uppercase tracking-[0.2em] mb-4">{spec.label}</div>
+                  <div className="text-xl font-bold text-white mb-1">{spec.val}</div>
+                  <div className="text-slate-500 text-xs italic">{spec.sub}</div>
+                </div>
+              ))}
             </div>
-            
+
             {/* Comparison Table */}
             <div className="overflow-x-auto bg-white/5">
               <table className="w-full text-left border-t border-slate-800">

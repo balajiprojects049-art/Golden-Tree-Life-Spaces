@@ -65,41 +65,41 @@ const ServicesPage = () => {
       {/* Technical Excellence Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="grid lg:grid-cols-2 gap-20 items-center">
-              <div className="relative">
-                 <div className="aspect-square bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
-                    <img
-                      src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2070&auto=format&fit=crop"
-                      alt="Solar Engineering"
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-60"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
-                    <div className="absolute bottom-10 left-10">
-                       <div className="text-4xl font-black text-green-400 mb-2">99.8%</div>
-                       <div className="text-xs text-gray-400 font-bold uppercase tracking-widest">System Uptime Recorded</div>
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="relative">
+              <div className="aspect-square bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
+                <img
+                  src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2070&auto=format&fit=crop"
+                  alt="Solar Engineering"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-60"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
+                <div className="absolute bottom-10 left-10">
+                  <div className="text-4xl font-black text-green-400 mb-2">99.8%</div>
+                  <div className="text-xs text-gray-400 font-bold uppercase tracking-widest">System Uptime Recorded</div>
+                </div>
+              </div>
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl" />
+            </div>
+            <div>
+              <h2 className="font-heading font-black text-4xl mb-8 uppercase tracking-tighter">The Engineering <span className="text-green-500">Difference.</span></h2>
+              <div className="space-y-8">
+                {[
+                  { title: 'IoT-Enabled Monitoring', desc: 'Every on-grid system comes with real-time app tracking to monitor every watt generated.' },
+                  { title: 'TUV Nord Certified Hardware', desc: 'We only deploy Tier-1 Bloomberg listed modules with certified mechanical load ratings.' },
+                  { title: 'Micro-Grid Specialization', desc: 'Capable of designing complex off-grid island systems for high-security and industrial zones.' }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6">
+                    <div className="shrink-0 w-1 bg-green-500/30" />
+                    <div>
+                      <h4 className="font-bold text-lg mb-2">{item.title}</h4>
+                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                     </div>
-                 </div>
-                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl" />
+                  </div>
+                ))}
               </div>
-              <div>
-                 <h2 className="font-heading font-black text-4xl mb-8 uppercase tracking-tighter">The Engineering <span className="text-green-500">Difference.</span></h2>
-                 <div className="space-y-8">
-                    {[
-                      { title: 'IoT-Enabled Monitoring', desc: 'Every on-grid system comes with real-time app tracking to monitor every watt generated.' },
-                      { title: 'TUV Nord Certified Hardware', desc: 'We only deploy Tier-1 Bloomberg listed modules with certified mechanical load ratings.' },
-                      { title: 'Micro-Grid Specialization', desc: 'Capable of designing complex off-grid island systems for high-security and industrial zones.' }
-                    ].map((item, i) => (
-                      <div key={i} className="flex gap-6">
-                         <div className="shrink-0 w-1 bg-green-500/30" />
-                         <div>
-                            <h4 className="font-bold text-lg mb-2">{item.title}</h4>
-                            <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                         </div>
-                      </div>
-                    ))}
-                 </div>
-              </div>
-           </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -118,8 +118,8 @@ const ServicesPage = () => {
               { q: 'Are there any government subsidies?', a: 'Yes. Residential on-grid systems qualify for MNRE central subsidies, which we help you process seamlessly.' }
             ].map((faq, i) => (
               <div key={i} className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 border-b-4 border-b-green-500/20">
-                 <h4 className="font-bold text-xl mb-4 text-slate-900">Q: {faq.q}</h4>
-                 <p className="text-slate-600 leading-relaxed">A: {faq.a}</p>
+                <h4 className="font-bold text-xl mb-4 text-slate-900">Q: {faq.q}</h4>
+                <p className="text-slate-600 leading-relaxed">A: {faq.a}</p>
               </div>
             ))}
           </div>

@@ -64,23 +64,23 @@ const CctvPage = () => {
                   Connectivity is never an issue. With integrated <strong>4G/LTE modules</strong>, the camera transmits live 4K video feeds directly to your smartphone through an encrypted cloud tunnel. No Wi-Fi, no cables, no limits.
                 </p>
                 <p>
-                   Advanced <strong>On-Edge AI algorithms</strong> distinguish between human movement, vehicles, and swaying trees, sending you only relevant, real-time alerts.
+                  Advanced <strong>On-Edge AI algorithms</strong> distinguish between human movement, vehicles, and swaying trees, sending you only relevant, real-time alerts.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-               {[
-                 { label: 'Connectivity', val: '4G/LTE', icon: FiWifi },
-                 { label: 'Storage', val: 'Cloud + SD', icon: FiDatabase },
-                 { label: 'AI Logic', val: 'Neural Net', icon: FiCpu },
-                 { label: 'Night Vision', val: 'Laser IR', icon: FiActivity }
-               ].map((box, i) => (
-                 <div key={i} className="bg-blue-900/10 border border-blue-500/20 p-8 rounded-xl hover:bg-blue-600/10 transition-colors">
-                   <box.icon className="text-blue-500 text-2xl mb-4" />
-                   <div className="text-slate-500 text-[10px] uppercase font-mono mb-1">{box.label}</div>
-                   <div className="text-xl font-bold font-mono tracking-tighter">{box.val}</div>
-                 </div>
-               ))}
+              {[
+                { label: 'Connectivity', val: '4G/LTE', icon: FiWifi },
+                { label: 'Storage', val: 'Cloud + SD', icon: FiDatabase },
+                { label: 'AI Logic', val: 'Neural Net', icon: FiCpu },
+                { label: 'Night Vision', val: 'Laser IR', icon: FiActivity }
+              ].map((box, i) => (
+                <div key={i} className="bg-blue-900/10 border border-blue-500/20 p-8 rounded-xl hover:bg-blue-600/10 transition-colors">
+                  <box.icon className="text-blue-500 text-2xl mb-4" />
+                  <div className="text-slate-500 text-[10px] uppercase font-mono mb-1">{box.label}</div>
+                  <div className="text-xl font-bold font-mono tracking-tighter">{box.val}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -106,24 +106,24 @@ const CctvPage = () => {
 
           {/* Surveillance Specifications Matrix */}
           <div className="bg-slate-900 rounded-[2rem] border border-blue-500/20 overflow-hidden shadow-[0_0_50px_rgba(59,130,246,0.1)]">
-             <div className="p-10 bg-blue-900/20 border-b border-blue-900/30">
-                <h3 className="text-2xl font-black text-white italic italic-none tracking-tighter uppercase">Sentinel Spec Matrix</h3>
-                <p className="text-blue-400 font-mono text-[10px] mt-1 tracking-widest uppercase">Hardware Configuration - v2.4</p>
-             </div>
-             <div className="grid md:grid-cols-2 lg:grid-cols-4 divide-x divide-blue-900/40">
-                {[
-                  { label: 'Image Resolution', val: '4K / 8MP', sub: 'Ultra High Definition' },
-                  { label: 'Solar Input', val: '60W Monocrystal', sub: 'High Temp Optimized' },
-                  { label: 'LTE Frequency', val: 'B1/B3/B5/B8/B40', sub: 'Global Band Support' },
-                  { label: 'Cloud Buffer', val: '30 Days Rolling', sub: 'AES-256 Protected' }
-                ].map((spec, i) => (
-                  <div key={spec.label} className="p-10 hover:bg-blue-600/5 transition-all group">
-                    <div className="text-[10px] text-blue-500 font-bold uppercase tracking-[0.3em] mb-4 group-hover:translate-x-1 transition-transform">{spec.label}</div>
-                    <div className="text-2xl font-black text-white mb-2">{spec.val}</div>
-                    <div className="text-xs text-slate-500 uppercase tracking-widest">{spec.sub}</div>
-                  </div>
-                ))}
-             </div>
+            <div className="p-10 bg-blue-900/20 border-b border-blue-900/30">
+              <h3 className="text-2xl font-black text-white italic italic-none tracking-tighter uppercase">Sentinel Spec Matrix</h3>
+              <p className="text-blue-400 font-mono text-[10px] mt-1 tracking-widest uppercase">Hardware Configuration - v2.4</p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 divide-x divide-blue-900/40">
+              {[
+                { label: 'Image Resolution', val: '4K / 8MP', sub: 'Ultra High Definition' },
+                { label: 'Solar Input', val: '60W Monocrystal', sub: 'High Temp Optimized' },
+                { label: 'LTE Frequency', val: 'B1/B3/B5/B8/B40', sub: 'Global Band Support' },
+                { label: 'Cloud Buffer', val: '30 Days Rolling', sub: 'AES-256 Protected' }
+              ].map((spec, i) => (
+                <div key={spec.label} className="p-10 hover:bg-blue-600/5 transition-all group">
+                  <div className="text-[10px] text-blue-500 font-bold uppercase tracking-[0.3em] mb-4 group-hover:translate-x-1 transition-transform">{spec.label}</div>
+                  <div className="text-2xl font-black text-white mb-2">{spec.val}</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-widest">{spec.sub}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

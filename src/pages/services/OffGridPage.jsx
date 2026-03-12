@@ -92,7 +92,7 @@ const OffGridPage = () => {
                   { icon: FiZap, title: 'Pure Sine Wave Inverters', desc: 'Our inverters provide grid-quality power, ensuring your sensitive electronics and heavy appliances run smoothly.' },
                   { icon: FiShield, title: 'Rugged Enclosures', desc: 'All system components are housed in IP65 rated, weather-optimized enclosures built for extreme field conditions.' }
                 ].map((item, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -133,40 +133,40 @@ const OffGridPage = () => {
 
           {/* Off-Grid Performance Matrix */}
           <div className="relative">
-             <div className="absolute inset-0 bg-amber-500/10 blur-[100px] -z-10" />
-             <div className="bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden">
-                <div className="p-8 border-b border-slate-800 bg-slate-900/50">
-                  <h3 className="text-2xl font-bold uppercase italic italic-none tracking-tighter">Power Capability Matrix</h3>
-                  <p className="text-slate-500 text-sm mt-1">Estimating what your standalone system can handle</p>
-                </div>
-                <div className="overflow-x-auto">
-                   <table className="w-full text-left">
-                     <thead>
-                       <tr className="bg-slate-950/50 text-slate-400 text-xs uppercase tracking-widest font-mono">
-                         <th className="p-6">System Size</th>
-                         <th className="p-6">Battery Storage</th>
-                         <th className="p-6">Typical Load</th>
-                         <th className="p-6">Best For</th>
-                       </tr>
-                     </thead>
-                     <tbody className="divide-y divide-slate-800">
-                       {[
-                         { size: '3kW System', storage: '9.6 kWh', load: 'Lights, Fans, TV, Fridge', for: 'Small Remote Homes' },
-                         { size: '5kW System', storage: '14.4 kWh', load: '+ Washing Machine, Pump', for: 'Mid-size Farmhouse' },
-                         { size: '10kW System', storage: '28.8 kWh', load: '+ Air Conditioning (Hybrid)', for: 'Large Estates' },
-                         { size: '20kW+ System', storage: 'Custom Array', load: 'Industrial equipment', for: 'Resorts & Industry' }
-                       ].map((row, i) => (
-                         <tr key={i} className="hover:bg-amber-500/5 transition-colors">
-                            <td className="p-6 font-bold text-amber-500">{row.size}</td>
-                            <td className="p-6 text-slate-300 font-mono text-sm">{row.storage}</td>
-                            <td className="p-6 text-slate-400 text-sm">{row.load}</td>
-                            <td className="p-6 text-white font-medium italic">{row.for}</td>
-                         </tr>
-                       ))}
-                     </tbody>
-                   </table>
-                </div>
-             </div>
+            <div className="absolute inset-0 bg-amber-500/10 blur-[100px] -z-10" />
+            <div className="bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden">
+              <div className="p-8 border-b border-slate-800 bg-slate-900/50">
+                <h3 className="text-2xl font-bold uppercase italic italic-none tracking-tighter">Power Capability Matrix</h3>
+                <p className="text-slate-500 text-sm mt-1">Estimating what your standalone system can handle</p>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left">
+                  <thead>
+                    <tr className="bg-slate-950/50 text-slate-400 text-xs uppercase tracking-widest font-mono">
+                      <th className="p-6">System Size</th>
+                      <th className="p-6">Battery Storage</th>
+                      <th className="p-6">Typical Load</th>
+                      <th className="p-6">Best For</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800">
+                    {[
+                      { size: '3kW System', storage: '9.6 kWh', load: 'Lights, Fans, TV, Fridge', for: 'Small Remote Homes' },
+                      { size: '5kW System', storage: '14.4 kWh', load: '+ Washing Machine, Pump', for: 'Mid-size Farmhouse' },
+                      { size: '10kW System', storage: '28.8 kWh', load: '+ Air Conditioning (Hybrid)', for: 'Large Estates' },
+                      { size: '20kW+ System', storage: 'Custom Array', load: 'Industrial equipment', for: 'Resorts & Industry' }
+                    ].map((row, i) => (
+                      <tr key={i} className="hover:bg-amber-500/5 transition-colors">
+                        <td className="p-6 font-bold text-amber-500">{row.size}</td>
+                        <td className="p-6 text-slate-300 font-mono text-sm">{row.storage}</td>
+                        <td className="p-6 text-slate-400 text-sm">{row.load}</td>
+                        <td className="p-6 text-white font-medium italic">{row.for}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </section>

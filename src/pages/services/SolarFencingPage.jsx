@@ -71,13 +71,13 @@ const SolarFencingPage = () => {
               <h2 className="font-heading font-black text-4xl mb-8 uppercase tracking-tight italic italic-none">A Deterrent <span className="text-emerald-500">Like No Other</span></h2>
               <div className="text-slate-600 space-y-6 text-lg leading-relaxed">
                 <p>
-                  <strong>Solar Power Fencing</strong> is the most cost-effective and dependable way to secure vast industrial complexes, agricultural lands, and high-security residences. 
+                  <strong>Solar Power Fencing</strong> is the most cost-effective and dependable way to secure vast industrial complexes, agricultural lands, and high-security residences.
                 </p>
                 <p>
                   The system functions by delivering a high-voltage (up to 10kV) but <strong>non-lethal</strong> pulse once every second. This creates a powerful psychological barrier. While the shock is painful enough to deter any human or animal, it is legally compliant and safe because of its incredibly short duration.
                 </p>
                 <p>
-                   Unlike traditional barbed wires, our solar fence is "intelligent." If an intruder attempts to cut the wire or short the system, an <strong>integrated alarm protocol</strong> triggers sirens and sends instant notifications to your security team.
+                  Unlike traditional barbed wires, our solar fence is "intelligent." If an intruder attempts to cut the wire or short the system, an <strong>integrated alarm protocol</strong> triggers sirens and sends instant notifications to your security team.
                 </p>
               </div>
             </div>
@@ -110,32 +110,32 @@ const SolarFencingPage = () => {
               <p className="text-emerald-500 font-mono text-[10px] mt-1">ENGINEERING DATA FOR PERIMETER PROTECTION</p>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-slate-800">
-               {[
-                 { label: 'Voltage Output', val: '8kV - 10kV', sub: 'Non-Lethal DC Pulse' },
-                 { label: 'Pulse Frequency', val: '1.2 Seconds', sub: 'Safety Compliant interval' },
-                 { label: 'Fence Material', val: 'High Tensile Galv.', sub: '12.5 Gauge Steel' },
-                 { label: 'System Backup', val: '72+ Hours', sub: 'Total Grid Independence' }
-               ].map((spec, i) => (
-                 <div key={i} className="p-8 hover:bg-emerald-500/5 transition-colors">
-                   <div className="text-[10px] text-emerald-500 font-black uppercase tracking-widest mb-3">{spec.label}</div>
-                   <div className="text-xl font-bold text-white mb-1">{spec.val}</div>
-                   <div className="text-slate-500 text-[10px] uppercase font-bold">{spec.sub}</div>
-                 </div>
-               ))}
+              {[
+                { label: 'Voltage Output', val: '8kV - 10kV', sub: 'Non-Lethal DC Pulse' },
+                { label: 'Pulse Frequency', val: '1.2 Seconds', sub: 'Safety Compliant interval' },
+                { label: 'Fence Material', val: 'High Tensile Galv.', sub: '12.5 Gauge Steel' },
+                { label: 'System Backup', val: '72+ Hours', sub: 'Total Grid Independence' }
+              ].map((spec, i) => (
+                <div key={i} className="p-8 hover:bg-emerald-500/5 transition-colors">
+                  <div className="text-[10px] text-emerald-500 font-black uppercase tracking-widest mb-3">{spec.label}</div>
+                  <div className="text-xl font-bold text-white mb-1">{spec.val}</div>
+                  <div className="text-slate-500 text-[10px] uppercase font-bold">{spec.sub}</div>
+                </div>
+              ))}
             </div>
             <div className="p-10 bg-slate-950/50">
-               <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                  <div className="max-w-xl">
-                    <h4 className="text-white font-bold mb-2 uppercase italic italic-none">Automatic Alert Logic</h4>
-                    <p className="text-slate-400 text-xs leading-relaxed">System triggers instant sirens and sends mobile alerts if resistance drops below 500Ω or if voltage is shorted to ground—ensuring 100% boundary integrity.</p>
-                  </div>
-                  <motion.button 
-                    whileHover={{ scale: 1.05 }}
-                    className="px-8 py-3 bg-emerald-600 text-white font-black text-xs uppercase tracking-widest rounded shadow-xl"
-                  >
-                    Request Site Survey
-                  </motion.button>
-               </div>
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="max-w-xl">
+                  <h4 className="text-white font-bold mb-2 uppercase italic italic-none">Automatic Alert Logic</h4>
+                  <p className="text-slate-400 text-xs leading-relaxed">System triggers instant sirens and sends mobile alerts if resistance drops below 500Ω or if voltage is shorted to ground—ensuring 100% boundary integrity.</p>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  className="px-8 py-3 bg-emerald-600 text-white font-black text-xs uppercase tracking-widest rounded shadow-xl"
+                >
+                  Request Site Survey
+                </motion.button>
+              </div>
             </div>
           </div>
         </div>
