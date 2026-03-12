@@ -24,7 +24,7 @@ const Contact = () => {
   ];
 
   return (
-    <section className="py-24 bg-light-gray relative">
+    <section className="py-12 lg:py-16 bg-light-gray relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
