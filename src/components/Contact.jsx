@@ -15,15 +15,23 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     
-    // Construct WhatsApp message
-    const message = `*New Contact Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Email:* ${formData.email}%0A*Requirements:* ${formData.message}%0A%0A_Sent from Contact Page_`;
+    // Construct WhatsApp message with professional styling
+    let message = `*🌟 New Contact Inquiry - Golden Tree 🌟*%0A`;
+    message += `➖➖➖➖➖➖➖➖➖➖➖➖➖%0A%0A`;
+    message += `👤 *Client Details*%0A`;
+    message += `• *Name:* ${formData.name}%0A`;
+    message += `• *Phone:* ${formData.phone}%0A`;
+    message += `• *Email:* ${formData.email}%0A%0A`;
+    message += `📝 *Requirements*%0A`;
+    message += `${formData.message}%0A%0A`;
+    message += `➖➖➖➖➖➖➖➖➖➖➖➖➖%0A`;
+    message += `_🤖 Sent from Contact Page_`;
+
     const whatsappUrl = `https://wa.me/919885848445?text=${message}`;
     
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-      window.open(whatsappUrl, '_blank');
-    }, 1000);
+    setLoading(false);
+    setSubmitted(true);
+    window.open(whatsappUrl, '_blank');
   };
 
   const contactInfo = [
