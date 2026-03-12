@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiArrowRight, FiCheckCircle, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { useState, useEffect, useCallback } from 'react';
+import { FiArrowRight, FiCheckCircle } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
 
 const slides = [
   { src: '/Home_Page/Hero_1.png', alt: 'Solar Panel Installation on Rooftop' },
@@ -11,39 +11,30 @@ const slides = [
   { src: '/Home_Page/Hero_5.png', alt: 'Clean Solar Energy India' },
 ];
 
+const SLIDE_DURATION = 5000; // 5 seconds per slide
+
 const Hero = () => {
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
 
-  const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  }, []);
-
-  const prev = useCallback(() => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  }, []);
-
-  // Auto-play every 5 seconds
+  // Fully automatic — no manual control
   useEffect(() => {
-    if (paused) return;
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, SLIDE_DURATION);
     return () => clearInterval(timer);
-  }, [paused, next]);
+  }, []);
 
   return (
-    <section
-      className="relative min-h-[90vh] flex items-center overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      {/* ── Slideshow Background ── */}
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+
+      {/* ── Auto Slideshow Background ── */}
       <AnimatePresence mode="sync">
         <motion.div
           key={current}
-          initial={{ opacity: 0, scale: 1.04 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 1.2, ease: 'easeInOut' }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
           <img
@@ -51,16 +42,17 @@ const Hero = () => {
             alt={slides[current].alt}
             className="w-full h-full object-cover"
           />
-          {/* Dark gradient overlay — strong on left for text readability */}
+          {/* Gradient overlay — strong on left for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/70 to-slate-900/20" />
-          {/* Bottom gradient for navigation dots */}
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-900/80 to-transparent" />
+          {/* Bottom fade for dots */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-900/60 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
       {/* ── Text Content ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
         <div className="max-w-2xl">
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,8 +78,9 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-300 text-lg md:text-xl mb-8 leading-relaxed"
           >
-            Clean, reliable, and highly efficient solar solutions for homes and businesses.
-            Reduce your electricity bills by up to 90% and switch to green energy.
+            Clean, reliable, and highly efficient solar solutions for homes and
+            businesses. Reduce your electricity bills by up to 90% and switch to
+            green energy.
           </motion.p>
 
           {/* Feature List */}
@@ -151,50 +144,31 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* ── Prev / Next Arrows ── */}
-      <button
-        onClick={prev}
-        aria-label="Previous slide"
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 backdrop-blur flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
-      >
-        <FiChevronLeft className="text-2xl" />
-      </button>
-      <button
-        onClick={next}
-        aria-label="Next slide"
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 backdrop-blur flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
-      >
-        <FiChevronRight className="text-2xl" />
-      </button>
-
-      {/* ── Dot Indicators ── */}
+      {/* ── Dot Indicators (view only, no click) ── */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
         {slides.map((_, i) => (
-          <button
+          <div
             key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all duration-500 rounded-full ${
+            className={`transition-all duration-700 rounded-full ${
               i === current
                 ? 'w-8 h-3 bg-green-400'
-                : 'w-3 h-3 bg-white/40 hover:bg-white/70'
+                : 'w-3 h-3 bg-white/30'
             }`}
           />
         ))}
       </div>
 
-      {/* ── Progress Bar ── */}
-      {!paused && (
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-20">
-          <motion.div
-            key={current}
-            initial={{ width: '0%' }}
-            animate={{ width: '100%' }}
-            transition={{ duration: 5, ease: 'linear' }}
-            className="h-full bg-green-400"
-          />
-        </div>
-      )}
+      {/* ── Auto Progress Bar at very bottom ── */}
+      <div className="absolute bottom-0 left-0 w-full h-[3px] bg-white/10 z-20">
+        <motion.div
+          key={current}
+          initial={{ width: '0%' }}
+          animate={{ width: '100%' }}
+          transition={{ duration: SLIDE_DURATION / 1000, ease: 'linear' }}
+          className="h-full bg-green-400"
+        />
+      </div>
+
     </section>
   );
 };
