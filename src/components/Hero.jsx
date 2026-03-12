@@ -25,7 +25,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[60vh] md:min-h-[90vh] flex items-center overflow-hidden">
 
       {/* ── Auto Slideshow Background ── */}
       <AnimatePresence mode="sync">
@@ -50,7 +50,7 @@ const Hero = () => {
       </AnimatePresence>
 
       {/* ── Text Content ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16 md:py-32">
         <div className="max-w-2xl">
 
           <motion.div

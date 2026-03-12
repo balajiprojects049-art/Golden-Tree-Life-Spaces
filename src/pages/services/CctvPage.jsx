@@ -6,7 +6,7 @@ const CctvPage = () => {
   return (
     <div className="bg-[#050a15] text-white min-h-screen selection:bg-blue-500/30">
       {/* Standardized Hero Section — min-h-[90vh] full bleed */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[60vh] md:min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/hero-cctv.png"
@@ -18,7 +18,7 @@ const CctvPage = () => {
           <div className="absolute inset-0 opacity-5 bg-[linear-gradient(90deg,rgba(59,130,246,0.5)_1px,transparent_1px),linear-gradient(rgba(59,130,246,0.5)_1px,transparent_1px)] bg-[size:40px_40px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16 md:py-32">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, x: -30 }}

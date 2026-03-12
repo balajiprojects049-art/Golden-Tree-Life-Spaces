@@ -6,7 +6,7 @@ const StreetLightPage = () => {
   return (
     <div className="bg-slate-950 text-white min-h-screen">
       {/* Standardized Hero Section — min-h-[90vh] full bleed */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[60vh] md:min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/hero-street-light.png"
@@ -16,7 +16,7 @@ const StreetLightPage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/97 via-slate-950/80 to-slate-950/30" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16 md:py-32">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
