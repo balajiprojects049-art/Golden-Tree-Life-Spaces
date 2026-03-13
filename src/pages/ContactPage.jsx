@@ -32,7 +32,7 @@ const ContactPage = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-heading font-black text-5xl md:text-7xl text-white leading-tight mb-6"
             >
-              Contact <span className="text-green-400">Us</span>
+              <span className="text-green-400">Contact</span> <span className="text-solar-light">Us</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,9 @@ const ContactPage = () => {
       <section className="py-20 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-black text-slate-900 mb-4">Quick Help</h3>
+            <h3 className="text-3xl font-black mb-4">
+              <span className="text-primary">Quick</span> <span className="text-solar-light">Help</span>
+            </h3>
             <p className="text-slate-500">Common questions before you reach out.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

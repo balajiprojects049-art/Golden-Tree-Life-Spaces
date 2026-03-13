@@ -1,4 +1,5 @@
-import { FiFacebook, FiInstagram, FiLinkedin, FiPhone, FiMail, FiSun, FiMapPin } from 'react-icons/fi';
+import { FiPhone, FiMail, FiSun, FiMapPin } from 'react-icons/fi';
+import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -23,9 +24,9 @@ const Footer = () => {
   ];
 
   const socials = [
-    { icon: FiFacebook, href: 'https://www.facebook.com/golden.tree.673991' },
-    { icon: FiInstagram, href: 'https://www.instagram.com/goldentreelifespaces/' },
-    { icon: FiLinkedin, href: '#' },
+    { icon: FaFacebook, href: 'https://www.facebook.com/golden.tree.673991' },
+    { icon: FaYoutube, href: 'https://youtube.com/@goldentreelifespaces-ql3xv?si=dDuPdr5MhJDjliIX' },
+    { icon: FaInstagram, href: 'https://www.instagram.com/goldentreelifespaces/' },
   ];
 
   return (

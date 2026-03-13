@@ -43,8 +43,8 @@ const ProcessSteps = () => {
           viewport={{ once: true }}
           className="mb-16 md:mb-24 text-center md:text-left"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#1d3557] tracking-tight">
-            Choose Solar in 4 Easy Steps
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tight">
+            <span className="text-primary">Choose Solar in</span> <span className="text-solar-light">4 Easy Steps</span>
           </h2>
         </motion.div>
 

@@ -121,7 +121,7 @@ const Services = () => {
         >
           <div className="text-primary font-bold tracking-wider uppercase text-sm mb-4">What We Offer</div>
           <h2 className="section-heading mb-4">
-            Total Solar <span className="text-primary">Energy Solutions</span>
+            <span className="text-primary">Total Solar</span> <span className="text-solar-light">Energy Solutions</span>
           </h2>
           <p className="section-subheading">
             Comprehensive solar products tailored for residential, agricultural, commercial, and industrial requirements.

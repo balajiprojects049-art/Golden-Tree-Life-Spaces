@@ -95,7 +95,7 @@ const WhyChooseUs = () => {
         >
           <div className="text-primary font-bold tracking-wider uppercase text-sm mb-4">Why Golden Tree</div>
           <h2 className="section-heading mb-4">
-            India's Most Trusted <span className="text-primary">Solar Partner</span>
+            <span className="text-primary">India's Most Trusted</span> <span className="text-solar-light">Solar Partner</span>
           </h2>
           <p className="section-subheading">
             More than just panels; we deliver complete energy freedom through end-to-end support, quality hardware, and seamless execution.

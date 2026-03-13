@@ -90,9 +90,9 @@ const Contact = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
-                Let's Build Your <br />
-                <span className="text-green-600">Energy Future.</span>
+              <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                <span className="text-primary">Let's Build Your</span> <br />
+                <span className="text-solar-light">Energy Future.</span>
               </h2>
               <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-md">
                 Have questions about net-metering, subsidies, or system sizing? 

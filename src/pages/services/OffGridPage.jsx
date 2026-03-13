@@ -151,16 +151,29 @@ const OffGridPage = () => {
                   </thead>
                   <tbody className="divide-y divide-slate-800">
                     {[
+                      { size: '12V Micro System', storage: '1 Battery (150Ah)', load: '3 Lights + 2 Fans', for: 'Small Shops / Basic Sheds' },
+                      { size: '24V Mini System', storage: '2 Batteries (150Ah)', load: '5 Lights + 3 Fans', for: 'Studio Cabins / Remote Offices' },
                       { size: '3kW System', storage: '9.6 kWh', load: 'Lights, Fans, TV, Fridge', for: 'Small Remote Homes' },
                       { size: '5kW System', storage: '14.4 kWh', load: '+ Washing Machine, Pump', for: 'Mid-size Farmhouse' },
                       { size: '10kW System', storage: '28.8 kWh', load: '+ Air Conditioning (Hybrid)', for: 'Large Estates' },
                       { size: '20kW+ System', storage: 'Custom Array', load: 'Industrial equipment', for: 'Resorts & Industry' }
                     ].map((row, i) => (
-                      <tr key={i} className="hover:bg-amber-500/5 transition-colors">
-                        <td className="p-6 font-bold text-amber-500">{row.size}</td>
-                        <td className="p-6 text-slate-300 font-mono text-sm">{row.storage}</td>
-                        <td className="p-6 text-slate-400 text-sm">{row.load}</td>
-                        <td className="p-6 text-white font-medium italic">{row.for}</td>
+                      <tr key={i} className="hover:bg-amber-500/5 transition-colors group">
+                        <td className="p-6">
+                          <div className="font-bold text-amber-500">{row.size}</div>
+                          <div className="text-[9px] text-slate-500 uppercase font-black mt-1">Power Output</div>
+                        </td>
+                        <td className="p-6">
+                          <div className="text-slate-300 font-mono text-sm">{row.storage}</div>
+                          <div className="text-[9px] text-slate-500 uppercase font-black mt-1">Backup Capacity</div>
+                        </td>
+                        <td className="p-6">
+                          <div className="text-slate-400 text-sm">{row.load}</div>
+                          <div className="text-[9px] text-slate-500 uppercase font-black mt-1">Tested Workflow</div>
+                        </td>
+                        <td className="p-6">
+                          <div className="text-white font-medium italic">{row.for}</div>
+                        </td>
                       </tr>
                     ))}
                   </tbody>

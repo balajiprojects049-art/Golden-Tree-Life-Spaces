@@ -34,7 +34,7 @@ const AboutPage = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-heading font-black text-5xl md:text-7xl text-white leading-tight mb-6"
             >
-              About <span className="text-green-400">Us</span>
+              <span className="text-green-400">About</span> <span className="text-solar-light">Us</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}

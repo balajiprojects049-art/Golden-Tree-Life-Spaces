@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiDroplet, FiSun, FiWind, FiTrendingUp, FiCheckCircle, FiShield, FiZap, FiActivity } from 'react-icons/fi';
+import { FiDroplet, FiSun, FiWind, FiTrendingUp, FiCheckCircle, FiShield, FiZap, FiActivity, FiExternalLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const WaterPumpingPage = () => {
@@ -122,28 +122,76 @@ const WaterPumpingPage = () => {
               <table className="w-full text-left">
                 <thead>
                   <tr className="bg-sky-50/50 text-sky-700 text-[10px] uppercase tracking-[0.2em] font-mono">
-                    <th className="p-8">System Rating</th>
-                    <th className="p-8">Max Total Head</th>
-                    <th className="p-8">Bore-well Size</th>
-                    <th className="p-8">Avg. Daily Output</th>
+                    <th className="p-8">System Rating (HP)</th>
+                    <th className="p-8">Required Modules (335W)</th>
+                    <th className="p-8">Operating Head Range</th>
+                    <th className="p-8 text-right">System Type</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-sky-50 text-sm">
                   {[
-                    { hp: '3.0 HP System', h: 'Up to 70m', b: '4 Inch min.', o: '40,000 - 60,000 L' },
-                    { hp: '5.0 HP System', h: 'Up to 100m', b: '6 Inch min.', o: '70,000 - 90,000 L' },
-                    { hp: '7.5 HP System', h: 'Up to 150m', b: '6 Inch min.', o: '1,00,000 - 1,40,000 L' },
-                    { hp: '10.0+ HP System', h: 'High Dynamic', b: 'Custom Spec', o: 'Industrial Volume' }
+                    { hp: '1.0 HP', mod: '3 NOS.', head: '20 - 50 M', type: 'Submersible/Surface' },
+                    { hp: '1.5 HP', mod: '5 NOS.', head: '20 - 70 M', type: 'Submersible/Surface' },
+                    { hp: '2.0 HP', mod: '6 NOS.', head: '20 - 90 M', type: 'Submersible/Surface' },
+                    { hp: '3.0 HP', mod: '9 NOS.', head: '20 - 100 M', type: 'Submersible/Surface' },
+                    { hp: '5.0 HP', mod: '16 NOS.', head: '20 - 120 M', type: 'Submersible/Surface' },
+                    { hp: '7.5 HP', mod: '24 NOS.', head: '20 - 130 M', type: 'Deep Well Spec' },
+                    { hp: '10.0 HP', mod: '32 NOS.', head: '20 - 220 M', type: 'Deep Well Spec' },
+                    { hp: '15.0 HP', mod: '48 NOS.', head: '20 - 280 M', type: 'High Volume' },
+                    { hp: '20.0 HP', mod: '64 NOS.', head: '20 - 300 M', type: 'Industrial' },
+                    { hp: '25.0 HP', mod: '80 NOS.', head: '20 - 330 M', type: 'Industrial' }
                   ].map((row, i) => (
-                    <tr key={i} className="hover:bg-sky-50 transition-colors">
-                      <td className="p-8 font-black text-slate-900 italic italic-none">{row.hp}</td>
-                      <td className="p-8 text-slate-600 font-mono italic">{row.h}</td>
-                      <td className="p-8 text-sky-600 font-bold">{row.b}</td>
-                      <td className="p-8 text-slate-900 font-black">{row.o}</td>
+                    <tr key={i} className="hover:bg-sky-50 transition-colors group">
+                      <td className="p-8">
+                        <div className="font-black text-slate-900 italic italic-none text-lg">{row.hp}</div>
+                        <div className="text-[10px] text-gray-400 font-bold uppercase mt-1">Motor Capacity</div>
+                      </td>
+                      <td className="p-8">
+                        <div className="text-slate-600 font-mono font-bold">{row.mod}</div>
+                        <div className="text-[10px] text-sky-500 font-bold uppercase mt-1">Solar Panels</div>
+                      </td>
+                      <td className="p-8">
+                        <div className="text-sky-600 font-black italic italic-none">{row.head}</div>
+                        <div className="text-[10px] text-gray-400 font-bold uppercase mt-1">Pumping Depth</div>
+                      </td>
+                      <td className="p-8 text-right">
+                        <span className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-black uppercase tracking-wider group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                          {row.type}
+                        </span>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+          {/* Government Registration CTA */}
+          <div className="mt-20 bg-gradient-to-br from-slate-900 to-sky-950 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden shadow-2xl border border-white/5">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-[100px] -z-10" />
+            
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+              <div className="max-w-2xl text-center md:text-left">
+                <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-sky-500/20 text-sky-400 text-[10px] font-black uppercase tracking-widest mb-6 border border-sky-500/30">
+                  Government Initiative
+                </div>
+                <h3 className="text-3xl md:text-5xl font-black mb-6 leading-tight uppercase italic italic-none tracking-tighter">
+                  Register for <span className="text-sky-400">Agricultural Aid.</span>
+                </h3>
+                <p className="text-gray-400 text-lg leading-relaxed">
+                  Apply for subsidies and agricultural support through the official portal. We assist you in every step of the documentation process for a hassle-free transition.
+                </p>
+              </div>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://fasalrin.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-sky-500 hover:text-white transition-all shadow-xl flex items-center gap-3 shrink-0"
+              >
+                Register Now
+                <FiExternalLink />
+              </motion.a>
             </div>
           </div>
         </div>

@@ -51,7 +51,7 @@ const About = () => {
           >
             <div className="text-primary font-bold tracking-wider uppercase text-sm mb-4">About the Company</div>
             <h2 className="section-heading mb-6">
-              Golden Tree <span className="text-primary">Life Spaces</span>
+              <span className="text-primary">Golden Tree</span> <span className="text-solar-light">Life Spaces</span>
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               Golden Tree Life Spaces is a leading provider of high-quality solar power products 

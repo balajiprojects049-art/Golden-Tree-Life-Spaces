@@ -33,7 +33,7 @@ const ServicesPage = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-heading font-black text-5xl md:text-8xl text-white leading-tight tracking-tighter mb-6"
             >
-              Energy <span className="text-green-400">Evolved.</span>
+              <span className="text-green-400">Energy</span> <span className="text-solar-light">Evolved.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,9 @@ const ServicesPage = () => {
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl" />
             </div>
             <div>
-              <h2 className="font-heading font-black text-4xl mb-8 uppercase tracking-tighter">The Engineering <span className="text-green-500">Difference.</span></h2>
+              <h2 className="font-heading font-black text-4xl mb-8 uppercase tracking-tighter">
+                <span className="text-primary">The Engineering</span> <span className="text-solar-light">Difference.</span>
+              </h2>
               <div className="space-y-8">
                 {[
                   { title: 'IoT-Enabled Monitoring', desc: 'Every on-grid system comes with real-time app tracking to monitor every watt generated.' },
@@ -107,7 +109,9 @@ const ServicesPage = () => {
       <section className="py-24 bg-slate-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="font-heading font-black text-4xl text-slate-900 mb-4 italic">Common Inquiries</h2>
+            <h2 className="font-heading font-black text-4xl mb-4 italic uppercase">
+              <span className="text-primary">Common</span> <span className="text-solar-light">Inquiries</span>
+            </h2>
             <p className="text-slate-600 max-w-2xl mx-auto">Get expert answers to the most frequent questions about transitioning to solar energy.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-12">
@@ -130,7 +134,9 @@ const ServicesPage = () => {
       <section className="py-24 bg-slate-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-heading font-black text-4xl text-slate-900 mb-4">Our Simple Solar Process</h2>
+            <h2 className="font-heading font-black text-4xl mb-4 uppercase">
+              <span className="text-primary">Our Simple</span> <span className="text-solar-light">Solar Process</span>
+            </h2>
             <p className="text-slate-600 max-w-2xl mx-auto">Going solar shouldn't be complicated. We guide you through every step.</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 relative">

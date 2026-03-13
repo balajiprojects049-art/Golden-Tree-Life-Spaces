@@ -52,17 +52,18 @@ const SolarFencingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { label: 'Voltage Pulse', val: '10,000V', icon: FiZap },
-                  { label: 'Shock Duration', val: '0.03ms', icon: FiTerminal },
-                  { label: 'Power Source', val: 'Solar/DC', icon: FiSun },
-                  { label: 'Alert Response', val: 'Instant', icon: FiAlertCircle }
+                  { label: 'Output Voltage', val: '2.5kV - 3.0kV', icon: FiZap, desc: 'Variable Range' },
+                  { label: 'Shock Intensity', val: 'Lite Deterrent', icon: FiTerminal, desc: 'Non-Lethal Shock' },
+                  { label: 'Human Safety', val: 'No Danger on Touch', icon: FiShield, desc: 'Safety Certified' },
+                  { label: 'Smart Alarm', val: 'Instant Siren', icon: FiAlertCircle, desc: 'Auto-Triggered' }
                 ].map((item, i) => (
-                  <div key={i} className="p-6 bg-slate-50 border border-slate-100 rounded-lg">
-                    <item.icon className="text-emerald-600 mb-4 text-xl" />
-                    <div className="text-slate-500 text-xs font-mono uppercase mb-1">{item.label}</div>
-                    <div className="text-2xl font-black text-slate-900">{item.val}</div>
+                  <div key={i} className="p-6 bg-slate-50 border border-slate-100 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                    <item.icon className="text-emerald-600 mb-4 text-2xl group-hover:scale-110 transition-transform" />
+                    <div className="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-1">{item.label}</div>
+                    <div className="text-2xl font-black text-slate-900 mb-1">{item.val}</div>
+                    <div className="text-[10px] text-emerald-500 font-bold uppercase tracking-wider">{item.desc}</div>
                   </div>
                 ))}
               </div>
@@ -74,10 +75,10 @@ const SolarFencingPage = () => {
                   <strong>Solar Power Fencing</strong> is the most cost-effective and dependable way to secure vast industrial complexes, agricultural lands, and high-security residences.
                 </p>
                 <p>
-                  The system functions by delivering a high-voltage (up to 10kV) but <strong>non-lethal</strong> pulse once every second. This creates a powerful psychological barrier. While the shock is painful enough to deter any human or animal, it is legally compliant and safe because of its incredibly short duration.
+                  The system functions by delivering a controlled-voltage <strong>(2.5kV - 3.0kV)</strong> but non-lethal pulse once every second. This creates an effective psychological and physical barriar. While the shock is a <strong>lite deterrent</strong> designed to keep intruders away, it is safety certified and presents <strong>no danger on human touch</strong> because of its advanced energy-limiting technology.
                 </p>
                 <p>
-                  Unlike traditional barbed wires, our solar fence is "intelligent." If an intruder attempts to cut the wire or short the system, an <strong>integrated alarm protocol</strong> triggers sirens and sends instant notifications to your security team.
+                  Unlike traditional barbed wires, our solar fence is "intelligent." If an intruder attempts to cut the wire or short the system, an <strong>integrated alarm protocol</strong> triggers powerful 120dB sirens instantly, ensuring total boundary integrity.
                 </p>
               </div>
             </div>
@@ -90,10 +91,10 @@ const SolarFencingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-1 mb-24">
             {[
-              { title: 'Fence Energizers', desc: 'The heart of the system—converting solar DC into regulated high-voltage pulses.', icon: FiZap },
+              { title: 'Fence Energizers', desc: 'The heart of the system—converting solar DC into regulated 2.5kV - 3.0kV non-lethal pulses.', icon: FiZap },
               { title: 'Intrusion Alert', desc: 'Loud 120dB alarm triggers immediately if any wire is tampered with or cut.', icon: FiAlertTriangle },
               { title: 'Battery Backup', desc: 'Integrated storage for 24/7 protection without sunlight for up to 3 days.', icon: FiCheckCircle },
-              { title: 'Legal Compliant', desc: 'Built to IEC standards ensuring maximum deterrence with zero legal liability.', icon: FiShield }
+              { title: 'Safety Certified', desc: 'Built to IEC standards ensuring a lite deterrent shock with no danger on human touch.', icon: FiShield }
             ].map((f, i) => (
               <div key={i} className="p-10 bg-white border border-slate-100 hover:bg-emerald-600 hover:text-white group transition-all duration-300">
                 <f.icon className="text-3xl text-emerald-600 group-hover:text-white mb-6 transition-colors" />
@@ -111,7 +112,7 @@ const SolarFencingPage = () => {
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-slate-800">
               {[
-                { label: 'Voltage Output', val: '8kV - 10kV', sub: 'Non-Lethal DC Pulse' },
+                { label: 'Voltage Output', val: '2.5kV - 3.0kV', sub: 'Non-Lethal DC Pulse' },
                 { label: 'Pulse Frequency', val: '1.2 Seconds', sub: 'Safety Compliant interval' },
                 { label: 'Fence Material', val: 'High Tensile Galv.', sub: '12.5 Gauge Steel' },
                 { label: 'System Backup', val: '72+ Hours', sub: 'Total Grid Independence' }
