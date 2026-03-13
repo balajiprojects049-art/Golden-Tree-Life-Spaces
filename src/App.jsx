@@ -8,6 +8,7 @@ import WhatsAppFloat from './components/WhatsAppFloat';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 import ConsultationPage from './pages/ConsultationPage';
+import GalleryPage from './pages/GalleryPage';
 // Individual Service Pages
 import OnGridPage from './pages/services/OnGridPage';
 import OffGridPage from './pages/services/OffGridPage';
@@ -36,7 +37,8 @@ function ScrollToTop() {
       "/services/street-light": `Solar Street Lights | ${baseTitle}`,
       "/services/cctv": `Solar Powered CCTV | ${baseTitle}`,
       "/services/water-pumping": `Agricultural Solar Pumping | ${baseTitle}`,
-      "/free-consultation": `Free Consultation | ${baseTitle}`
+      "/free-consultation": `Free Consultation | ${baseTitle}`,
+      "/gallery": `Our Works | ${baseTitle}`
     };
     
     document.title = titleMap[pathname] || baseTitle;
@@ -63,6 +65,7 @@ function App() {
           <Route path="/services/street-light" element={<StreetLightPage />} />
           <Route path="/services/cctv" element={<CctvPage />} />
           <Route path="/services/water-pumping" element={<WaterPumpingPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/free-consultation" element={<ConsultationPage />} />
         </Routes>
       </main>
