@@ -62,7 +62,7 @@ export default async function handler(req, res) {
         }
 
         const mailOptions = {
-            from: `"Golden Tree Website" <${process.env.EMAIL_USER}>`,
+            from: `"${fullName}" <${process.env.EMAIL_USER}>`,
             to: process.env.RECEIVER_EMAIL || 'solargoldentree@gmail.com',
             replyTo: process.env.EMAIL_USER,
             subject: `🌞 New Lead: ${fullName} (${customerSegment})`,
