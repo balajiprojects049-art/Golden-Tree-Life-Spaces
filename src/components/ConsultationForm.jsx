@@ -97,8 +97,8 @@ const ConsultationForm = () => {
         
         {/* Header Title */}
         <div className="mb-10 text-center md:text-left">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#0f172a] mb-3 tracking-tight">
-            Schedule a <span className="text-[#1d3557]">FREE consultation</span> with us today!
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-3 tracking-tight">
+            Schedule a <span className="text-solar">FREE consultation</span> with us today!
           </h2>
           <p className="text-slate-600 text-base md:text-lg">
             Please fill the form and we will get in touch with you for the consultation

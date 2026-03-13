@@ -16,18 +16,21 @@ const Contact = () => {
     setLoading(true);
     
     // Construct WhatsApp message with professional styling
-    let message = `*🌟 New Contact Inquiry - Golden Tree 🌟*%0A`;
-    message += `➖➖➖➖➖➖➖➖➖➖➖➖➖%0A%0A`;
-    message += `👤 *Client Details*%0A`;
-    message += `• *Name:* ${formData.name}%0A`;
-    message += `• *Phone:* ${formData.phone}%0A`;
-    message += `• *Email:* ${formData.email}%0A%0A`;
-    message += `📝 *Requirements*%0A`;
-    message += `${formData.message}%0A%0A`;
-    message += `➖➖➖➖➖➖➖➖➖➖➖➖➖%0A`;
-    message += `_🤖 Sent from Contact Page_`;
+    const message = `*New Contact Inquiry | Golden Tree*
+----------------------------------------
 
-    const whatsappUrl = `https://wa.me/919885848445?text=${message}`;
+*Client Details*
+*Name:* ${formData.name}
+*Phone:* ${formData.phone}
+*Email:* ${formData.email}
+
+*Requirements*
+${formData.message}
+
+----------------------------------------
+_Sent from Contact Page_`;
+
+    const whatsappUrl = `https://wa.me/919885848445?text=${encodeURIComponent(message)}`;
     
     setLoading(false);
     setSubmitted(true);

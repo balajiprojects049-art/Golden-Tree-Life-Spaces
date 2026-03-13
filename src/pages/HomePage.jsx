@@ -2,7 +2,7 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
-import Contact from '../components/Contact';
+import ConsultationForm from '../components/ConsultationForm';
 import SocialMedia from '../components/SocialMedia';
 import ConsultationBanner from '../components/ConsultationBanner';
 import NewsTicker from '../components/NewsTicker';
@@ -21,7 +21,7 @@ const HomePage = () => {
       <Services />
       <WhyChooseUs />
       <SocialMedia />
-      <Contact />
+      <ConsultationForm />
     </>
   );
 };
