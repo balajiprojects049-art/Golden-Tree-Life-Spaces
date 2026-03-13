@@ -109,7 +109,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link
-              to="/contact"
+              to="/free-consultation"
               className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full transition-all shadow-xl shadow-green-500/20"
             >
               Get Free Consultation

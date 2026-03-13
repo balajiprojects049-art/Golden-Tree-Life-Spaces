@@ -35,7 +35,7 @@ const StreetLightPage = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  to="/contact"
+                  to="/free-consultation"
                   className="bg-yellow-400 text-slate-900 px-10 py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white hover:scale-105 transition-all shadow-[0_0_30px_rgba(250,204,21,0.3)]"
                 >
                   Request Quotation
@@ -246,7 +246,7 @@ const StreetLightPage = () => {
                   <div className="text-slate-500 text-[10px] mt-1 uppercase">Taxation as per Gov. Norms</div>
                 </div>
                 <div>
-                  <Link to="/contact" className="w-full bg-white text-slate-950 px-6 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-yellow-400 transition-all text-center block shadow-lg">
+                  <Link to="/free-consultation" className="w-full bg-white text-slate-950 px-6 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-yellow-400 transition-all text-center block shadow-lg">
                     Check Bulk Prices
                   </Link>
                 </div>

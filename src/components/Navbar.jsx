@@ -49,7 +49,7 @@ const Navbar = () => {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/contact" className="hover:text-primary transition-colors font-medium">Free Solar Consultation</Link>
+            <Link to="/free-consultation" className="hover:text-primary transition-colors font-medium">Free Solar Consultation</Link>
             <span className="text-gray-500">|</span>
             <a 
               href="https://consumer.pmsuryaghar.gov.in/consumer/#/registered-vendors" 

@@ -37,7 +37,7 @@ const CctvPage = () => {
                 dependency on grid or wires.
               </p>
               <div className="flex flex-wrap gap-8 items-center">
-                <Link to="/contact" className="bg-blue-600 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-blue-600 transition-all shadow-xl shadow-blue-600/20">
+                <Link to="/free-consultation" className="bg-blue-600 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-blue-600 transition-all shadow-xl shadow-blue-600/20">
                   DEPLOY SYSTEM
                 </Link>
                 <div className="text-xs font-mono text-slate-500">

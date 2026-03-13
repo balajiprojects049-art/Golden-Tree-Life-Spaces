@@ -50,7 +50,7 @@ const ServicesPage = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <Link
-                to="/contact"
+                to="/free-consultation"
                 className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full transition-all shadow-xl shadow-green-500/20"
               >
                 Get A Free Quote <FiArrowRight />
@@ -164,7 +164,7 @@ const ServicesPage = () => {
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="font-heading font-bold text-3xl mb-6 uppercase tracking-tighter">Looking for Bulk Solar Solutions?</h2>
           <p className="text-white/80 text-lg mb-8">We specialize in large-scale commercial and industrial solar setups with high ROI and technical complexity.</p>
-          <Link to="/contact" className="inline-block bg-white text-green-600 px-10 py-4 rounded-full font-black uppercase tracking-widest shadow-xl hover:bg-slate-900 hover:text-white transition-all">
+          <Link to="/free-consultation" className="inline-block bg-white text-green-600 px-10 py-4 rounded-full font-black uppercase tracking-widest shadow-xl hover:bg-slate-900 hover:text-white transition-all">
             Request Corporate Proposal
           </Link>
         </div>

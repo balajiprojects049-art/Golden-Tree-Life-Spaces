@@ -34,7 +34,7 @@ const SolarFencingPage = () => {
                 physical barrier that stops intruders before they even touch your boundary.
               </p>
               <div className="flex flex-wrap gap-6">
-                <Link to="/contact" className="bg-emerald-500 text-slate-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-emerald-500/20">
+                <Link to="/free-consultation" className="bg-emerald-500 text-slate-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-emerald-500/20">
                   System Design
                 </Link>
                 <div className="flex items-center gap-3 text-slate-400 text-sm italic">

@@ -34,7 +34,7 @@ const OffGridPage = () => {
                 Standalone energy solutions for the bold. High-capacity storage for remote residences,
                 farms, and industrial sites where the grid simply cannot reach.
               </p>
-              <Link to="/contact" className="inline-block bg-amber-500 text-slate-950 px-10 py-5 rounded-full font-black uppercase tracking-tighter hover:bg-white transition-all shadow-xl shadow-amber-500/20">
+              <Link to="/free-consultation" className="inline-block bg-amber-500 text-slate-950 px-10 py-5 rounded-full font-black uppercase tracking-tighter hover:bg-white transition-all shadow-xl shadow-amber-500/20">
                 Go Off-Grid Now
               </Link>
             </motion.div>

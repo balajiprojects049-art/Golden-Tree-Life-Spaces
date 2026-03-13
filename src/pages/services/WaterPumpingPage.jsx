@@ -34,7 +34,7 @@ const WaterPumpingPage = () => {
                 and designed for life on the field.
               </p>
               <div className="flex items-center gap-8">
-                <Link to="/contact" className="bg-sky-500 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-sky-600 shadow-xl shadow-sky-500/20 transition-all">
+                <Link to="/free-consultation" className="bg-sky-500 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-sky-600 shadow-xl shadow-sky-500/20 transition-all">
                   Get System Design
                 </Link>
                 <div>
@@ -114,7 +114,7 @@ const WaterPumpingPage = () => {
                 <h3 className="text-3xl font-black text-slate-900 italic italic-none tracking-tighter uppercase">Pumping Capacity Matrix</h3>
                 <p className="text-sky-600 font-bold text-[10px] mt-1 tracking-widest uppercase">Performance Data by System Size</p>
               </div>
-              <Link to="/contact" className="bg-slate-900 text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest hover:bg-sky-600 transition-all">
+              <Link to="/free-consultation" className="bg-slate-900 text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest hover:bg-sky-600 transition-all">
                 Book Site Audit
               </Link>
             </div>

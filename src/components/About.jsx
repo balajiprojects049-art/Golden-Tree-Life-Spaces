@@ -74,8 +74,8 @@ const About = () => {
             </ul>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <Link to="/contact" className="btn-primary">
-                Contact Us Today
+              <Link to="/free-consultation" className="btn-primary">
+                Book Free Consultation
               </Link>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-green-100 text-primary-dark flex items-center justify-center">

@@ -37,7 +37,7 @@ const WaterHeaterPage = () => {
                 Our systems save up to 75% on total water heating costs.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact" className="bg-cyan-500 text-white px-10 py-4 rounded-full font-bold shadow-xl shadow-cyan-500/20 hover:bg-white hover:text-cyan-600 transition-all">
+                <Link to="/free-consultation" className="bg-cyan-500 text-white px-10 py-4 rounded-full font-bold shadow-xl shadow-cyan-500/20 hover:bg-white hover:text-cyan-600 transition-all">
                   Get A Free Quote
                 </Link>
                 <div className="flex items-center gap-2 text-cyan-400 font-medium px-4 py-2 border border-cyan-500/40 rounded-full bg-white/5 backdrop-blur">
@@ -124,7 +124,7 @@ const WaterHeaterPage = () => {
                 <h3 className="text-3xl font-black text-white italic italic-none tracking-tighter uppercase">Thermal Capability Matrix</h3>
                 <p className="text-cyan-500 font-mono text-xs mt-2">TECHNICAL CROSS-SECTION BY USAGE</p>
               </div>
-              <Link to="/contact" className="px-8 py-3 bg-cyan-600 text-white font-bold rounded-full hover:bg-white hover:text-cyan-600 transition-all text-sm">
+              <Link to="/free-consultation" className="px-8 py-3 bg-cyan-600 text-white font-bold rounded-full hover:bg-white hover:text-cyan-600 transition-all text-sm">
                 Download Technical Datasheet
               </Link>
             </div>

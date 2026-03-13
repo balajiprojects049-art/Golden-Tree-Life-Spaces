@@ -36,7 +36,7 @@ const OnGridPage = () => {
                 "Ideally suited for residences and businesses with a stable utility grid, offering the fastest ROI in the solar industry."
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact" className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-blue-600 transition-all flex items-center gap-2 group shadow-xl shadow-blue-600/20">
+                <Link to="/free-consultation" className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-blue-600 transition-all flex items-center gap-2 group shadow-xl shadow-blue-600/20">
                   Calculate My Savings <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
