@@ -27,6 +27,10 @@ const ConsultationForm = () => {
   // For the tag selection logic
   const [selectedBill, setSelectedBill] = useState('');
   const [selectedDesignation, setSelectedDesignation] = useState('');
+  
+  // Submission Status
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,43 +43,52 @@ const ConsultationForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
 
-    // Build the WhatsApp message based on the active tab
-    let message = `*🌟 New Consultation Request - Golden Tree 🌟*%0A`;
-    message += `➖➖➖➖➖➖➖➖➖➖➖➖➖%0A%0A`;
-    message += `📋 *Customer Segment:* ${activeTab}%0A%0A`;
-    message += `👤 *Client Details*%0A`;
-    message += `• *Name:* ${formData.fullName}%0A`;
-    message += `• *WhatsApp:* ${formData.whatsapp}%0A`;
+    const submissionData = {
+      ...formData,
+      customerSegment: activeTab,
+      avgMonthlyBill: activeTab === 'Residential' ? selectedBill : formData.electricityBill,
+      designation: selectedDesignation
+    };
 
-    if (activeTab === 'Residential') {
-      message += `• *Pincode:* ${formData.pincode}%0A`;
-      message += `• *Avg Monthly Bill:* ${selectedBill || 'Not provided'}%0A`;
-    } 
-    else if (activeTab === 'Housing Society') {
-      message += `• *Society Name:* ${formData.housingSocietyName}%0A`;
-      message += `• *Pincode:* ${formData.pincode}%0A`;
-      message += `• *Monthly Bill:* ${formData.electricityBill}%0A`;
-      message += `• *Designation:* ${selectedDesignation || 'Not provided'}%0A`;
-      message += `• *AGM Status:* ${formData.agmStatus}%0A`;
-    } 
-    else if (activeTab === 'Commercial') {
-      message += `• *Company:* ${formData.companyName}%0A`;
-      message += `• *City:* ${formData.city}%0A`;
-      message += `• *Pincode:* ${formData.pincode}%0A`;
-      message += `• *Avg Monthly Bill:* ${formData.electricityBill}%0A`;
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ type: 'success', message: 'Thank you! Your consultation request has been sent.' });
+        // Reset form
+        setFormData({
+          fullName: '',
+          whatsapp: '',
+          pincode: '',
+          city: '',
+          companyName: '',
+          housingSocietyName: '',
+          electricityBill: '0 - 50000',
+          agmStatus: 'Select Approval Status'
+        });
+        setSelectedBill('');
+        setSelectedDesignation('');
+      } else {
+        setSubmitStatus({ type: 'error', message: data.error || 'Something went wrong. Please try again.' });
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Failed to connect to the server. Please try later.' });
+    } finally {
+      setIsSubmitting(false);
     }
-
-    message += `%0A➖➖➖➖➖➖➖➖➖➖➖➖➖%0A`;
-    message += `_🤖 Securely submitted via website form_`;
-
-    // WhatsApp API URL for +91 98858 48445
-    const whatsappUrl = `https://wa.me/919885848445?text=${message}`;
-    
-    // Open in new tab/app
-    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -289,12 +302,34 @@ const ConsultationForm = () => {
                 </label>
               </div>
 
+              {/* Status Message */}
+              {submitStatus.message && (
+                <div className={`p-4 rounded-xl text-sm font-medium ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-50 text-green-700 border border-green-100' 
+                    : 'bg-red-50 text-red-700 border border-red-100'
+                }`}>
+                  {submitStatus.message}
+                </div>
+              )}
+
               <div className="pt-2">
                 <button 
                   type="submit" 
-                  className="bg-[#0b1021] hover:bg-[#1d3557] text-white font-bold text-sm py-4 px-8 rounded-full transition-all shadow-lg hover:shadow-xl w-fit min-w-[180px]"
+                  disabled={isSubmitting}
+                  className={`bg-[#0b1021] hover:bg-[#1d3557] text-white font-bold text-sm py-4 px-8 rounded-full transition-all shadow-lg hover:shadow-xl w-fit min-w-[180px] flex items-center justify-center ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
                 >
-                  Submit Form
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : 'Submit Form'}
                 </button>
               </div>
             </form>
