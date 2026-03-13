@@ -50,6 +50,15 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-4">
             <Link to="/contact" className="hover:text-primary transition-colors font-medium">Free Solar Consultation</Link>
+            <span className="text-gray-500">|</span>
+            <a 
+              href="https://consumer.pmsuryaghar.gov.in/consumer/#/registered-vendors" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-solar-light hover:text-white transition-colors font-black text-[10px] uppercase tracking-wider bg-white/5 px-3 py-1 rounded"
+            >
+              Verify Registered Vendor
+            </a>
           </div>
         </div>
       </div>
@@ -60,15 +69,15 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-16 h-16 flex items-center justify-center shrink-0">
+            <Link to="/" className="flex items-center gap-4">
+              <div className="w-20 h-20 flex items-center justify-center shrink-0">
                 <img src="/logo.png" alt="Golden Tree Life Spaces" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col">
-                <span className="font-heading font-bold text-xl leading-tight">
-                  <span className="text-solar-light">Golden</span> <span className="text-primary-dark">Tree</span>
+                <span className="font-heading font-bold text-2xl leading-none text-primary whitespace-nowrap">
+                  Golden Tree
                 </span>
-                <span className="text-[10px] text-primary font-bold tracking-wider uppercase">
+                <span className="text-xs text-solar-light font-black tracking-[0.25em] uppercase mt-0.5">
                   Life Spaces
                 </span>
               </div>

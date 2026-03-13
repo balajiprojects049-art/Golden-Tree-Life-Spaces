@@ -94,31 +94,30 @@ const GalleryPage = () => {
       </section>
 
       {/* Categorized Sections */}
-      <div className="py-20 space-y-32">
-        {/* Category Navigation Section (Professional Deep Green & Gold Version) */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-48">
-           <div className="relative overflow-hidden bg-[#0b3d1b] p-10 md:p-12 rounded-[2.5rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.4)] border border-white/10">
+      <div className="py-12 md:py-20 space-y-16 md:space-y-32">
+        {/* Category Navigation Section (Optimized for Mobile) */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-32 md:-mt-48">
+           <div className="relative overflow-hidden bg-[#0b3d1b] p-6 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.4)] border border-white/10">
               {/* Subtle Ambient Glow & Pattern */}
               <div className="absolute inset-0 opacity-10 bg-pattern pointer-events-none"></div>
-              <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none"></div>
               
               <div className="relative z-10 flex flex-col items-center">
-                <div className="flex items-center gap-4 mb-10">
-                  <div className="w-10 h-[1px] bg-white/20"></div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/70">
-                    Filter by <span className="text-solar-light">Service category</span>
+                <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-10">
+                  <div className="w-6 md:w-10 h-[1px] bg-white/20"></div>
+                  <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] md:tracking-[0.4em] text-white/70 text-center">
+                    Filter by <span className="text-solar-light">Category</span>
                   </p>
-                  <div className="w-10 h-[1px] bg-white/20"></div>
+                  <div className="w-6 md:w-10 h-[1px] bg-white/20"></div>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-3 md:gap-4 w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center gap-2 md:gap-4 w-full">
                   {categories.map((cat) => (
                     <button
                       key={cat.id}
                       onClick={() => scrollToSection(cat.id)}
-                      className="group flex items-center gap-3 px-6 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.15em] bg-solar-light text-[#0b3d1b] hover:bg-white hover:text-primary transition-all duration-500 shadow-xl shadow-black/20 active:scale-95 border-2 border-transparent"
+                      className="group flex items-center justify-center lg:justify-start gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-wider md:tracking-[0.15em] bg-solar-light text-[#0b3d1b] hover:bg-white hover:text-primary transition-all duration-500 shadow-lg active:scale-95 border border-transparent whitespace-nowrap"
                     >
-                      <span className="text-sm group-hover:scale-125 transition-transform duration-500">{cat.icon}</span>
+                      <span className="text-xs md:text-sm group-hover:scale-125 transition-transform duration-500">{cat.icon}</span>
                       <span>{cat.label}</span>
                     </button>
                   ))}

@@ -19,6 +19,7 @@ const Footer = () => {
     { label: 'Our Services', to: '/services' },
     { label: 'Our Works', to: '/gallery' },
     { label: 'Contact Us', to: '/contact' },
+    { label: 'Verify Official Vendor', href: 'https://consumer.pmsuryaghar.gov.in/consumer/#/registered-vendors' },
   ];
 
   const socials = [
@@ -33,15 +34,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
           <div className="lg:col-span-1">
-            <Link to="/" onClick={scrollToTop} className="flex items-center gap-3 mb-6 hover:opacity-80 transition-opacity">
-              <div className="w-16 h-16 flex items-center justify-center shrink-0">
+            <Link to="/" onClick={scrollToTop} className="flex items-center gap-4 mb-6 hover:opacity-80 transition-opacity">
+              <div className="w-20 h-20 flex items-center justify-center shrink-0">
                 <img src="/logo.png" alt="Golden Tree Life Spaces" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col">
-                <span className="font-heading font-bold text-xl leading-tight block">
-                  <span className="text-solar-light">Golden</span> <span className="text-primary">Tree</span>
+                <span className="font-heading font-bold text-2xl leading-none block text-primary">
+                  Golden Tree
                 </span>
-                <span className="text-gray-300 text-[10px] font-bold tracking-widest uppercase">Life Spaces</span>
+                <span className="text-solar-light text-xs font-black tracking-[0.25em] uppercase mt-1">Life Spaces</span>
               </div>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
@@ -67,14 +68,25 @@ const Footer = () => {
             <h4 className="font-heading font-bold text-white text-lg mb-6 tracking-wide">Company</h4>
             <ul className="space-y-4">
               {quickLinks.map((link) => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    onClick={scrollToTop}
-                    className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-2"
-                  >
-                    <span>›</span> {link.label}
-                  </Link>
+                <li key={link.label}>
+                  {link.href ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-2"
+                    >
+                      <span>›</span> {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.to}
+                      onClick={scrollToTop}
+                      className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-2"
+                    >
+                      <span>›</span> {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
