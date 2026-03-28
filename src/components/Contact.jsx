@@ -14,7 +14,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     // Construct WhatsApp message with professional styling
     const message = `*New Contact Inquiry | Golden Tree*
 ----------------------------------------
@@ -31,46 +31,46 @@ ${formData.message}
 _Sent from Contact Page_`;
 
     const whatsappUrl = `https://wa.me/919885848445?text=${encodeURIComponent(message)}`;
-    
+
     setLoading(false);
     setSubmitted(true);
     window.open(whatsappUrl, '_blank');
   };
 
   const contactInfo = [
-    { 
-      icon: FiPhone, 
-      label: 'Call Us Anytime', 
-      content: '+91 98858 48445', 
-      link: 'tel:9885848445',
-      color: 'bg-green-500' 
+    {
+      icon: FiPhone,
+      label: 'Call Us Anytime',
+      content: '+91 9885848445',
+      link: null,
+      color: 'bg-green-500'
     },
-    { 
-      icon: FaWhatsapp, 
-      label: 'WhatsApp Support', 
-      content: 'Chat with Experts', 
+    {
+      icon: FaWhatsapp,
+      label: 'WhatsApp Support',
+      content: 'Chat with Experts',
       link: 'https://wa.me/919885848445',
-      color: 'bg-[#25D366]' 
+      color: 'bg-[#25D366]'
     },
-    { 
-      icon: FiMail, 
-      label: 'Email Address', 
-      content: 'goldentreelifespaces@gmail.com', 
+    {
+      icon: FiMail,
+      label: 'Email Address',
+      content: 'goldentreelifespaces@gmail.com',
       link: 'mailto:goldentreelifespaces@gmail.com',
-      color: 'bg-blue-500' 
+      color: 'bg-blue-500'
     }
   ];
 
   const locations = [
-    { 
-      name: 'Corporate Office', 
-      addr: 'Ground Floor, Presidio Towers, Mini Bypass Road, Ramalinga Puram, Nellore - 524003', 
+    {
+      name: 'Corporate Office',
+      addr: 'Ground Floor, Presidio Towers, Mini Bypass Road, Ramalinga Puram, Nellore - 524003',
       link: 'https://maps.app.goo.gl/mJ7KmwNpC33cUUVK9',
       embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.7903699156136!2d79.9833098!3d14.4392412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4cf3f7d753e301%3A0x8f20eef1fb51b4fe!2sGOLDEN%20TREE%20LIFE%20SPACES%20SOLAR%20IN%20NELLORE!5e0!3m2!1sen!2sin!4v1773340956560!5m2!1sen!2sin'
     },
-    { 
-      name: 'Experience Center', 
-      addr: 'Muthukur Rd, near Narayana Medical College, Gundlapalem, Nellore - 524003', 
+    {
+      name: 'Experience Center',
+      addr: 'Muthukur Rd, near Narayana Medical College, Gundlapalem, Nellore - 524003',
       link: 'https://maps.app.goo.gl/htXECBkvr7K7GYyg8',
       embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3864.196740871909!2d80.0120288!3d14.4158193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4cf50391cefcf9%3A0xf8a3c0fd82bb70e2!2sGolden%20tree%20life%20spaces%20%26%20Cement+and+Steel!5e0!3m2!1sen!2sin!4v1773341002016!5m2!1sen!2sin'
     }
@@ -84,7 +84,7 @@ _Sent from Contact Page_`;
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
-          
+
           {/* Left Side: Info & Presence */}
           <div className="lg:col-span-5">
             <motion.div
@@ -98,26 +98,29 @@ _Sent from Contact Page_`;
                 <span className="text-solar-light">Energy Future.</span>
               </h2>
               <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-md">
-                Have questions about net-metering, subsidies, or system sizing? 
+                Have questions about net-metering, subsidies, or system sizing?
                 Our engineers are standing by to provide a free site survey.
               </p>
 
               <div className="space-y-6 mb-12">
-                {contactInfo.map((info, i) => (
-                  <a 
-                    key={i} 
-                    href={info.link}
-                    className="flex items-center gap-5 p-4 rounded-2xl border border-slate-100 hover:border-green-200 hover:bg-green-50/30 transition-all group shadow-sm bg-white"
-                  >
-                    <div className={`${info.color} w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl shadow-lg`}>
-                      <info.icon />
-                    </div>
-                    <div>
-                      <div className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-0.5">{info.label}</div>
-                      <div className="text-slate-900 font-bold group-hover:text-green-600 transition-colors">{info.content}</div>
-                    </div>
-                  </a>
-                ))}
+                {contactInfo.map((info, i) => {
+                  const Tag = info.link ? 'a' : 'div';
+                  return (
+                    <Tag
+                      key={i}
+                      href={info.link}
+                      className={`flex items-center gap-5 p-4 rounded-2xl border border-slate-100 transition-all group shadow-sm bg-white ${info.link ? 'hover:border-green-200 hover:bg-green-50/30' : ''}`}
+                    >
+                      <div className={`${info.color} w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl shadow-lg`}>
+                        <info.icon />
+                      </div>
+                      <div>
+                        <div className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-0.5">{info.label}</div>
+                        <div className={`text-slate-900 font-bold transition-colors ${info.link ? 'group-hover:text-green-600' : ''}`}>{info.content}</div>
+                      </div>
+                    </Tag>
+                  );
+                })}
               </div>
 
             </motion.div>
@@ -138,7 +141,7 @@ _Sent from Contact Page_`;
                   </div>
                   <h3 className="text-3xl font-black text-slate-900 mb-4">Request Sent!</h3>
                   <p className="text-slate-500 mb-8">We've received your request and redirected you to WhatsApp for instant support.</p>
-                  <button 
+                  <button
                     onClick={() => setSubmitted(false)}
                     className="text-green-600 font-bold hover:underline"
                   >
@@ -150,53 +153,53 @@ _Sent from Contact Page_`;
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-2.5">
                       <label className="text-sm font-bold text-slate-700 ml-1">Your Name</label>
-                      <input 
+                      <input
                         required
-                        type="text" 
+                        type="text"
                         placeholder="John Doe"
                         className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-green-500 focus:ring-4 focus:ring-green-500/10 outline-none transition-all"
                         value={formData.name}
-                        onChange={e => setFormData({...formData, name: e.target.value})}
+                        onChange={e => setFormData({ ...formData, name: e.target.value })}
                       />
                     </div>
                     <div className="space-y-2.5">
                       <label className="text-sm font-bold text-slate-700 ml-1">Phone Number</label>
-                      <input 
+                      <input
                         required
-                        type="tel" 
+                        type="tel"
                         placeholder="+91 00000 00000"
                         className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-green-500 focus:ring-4 focus:ring-green-500/10 outline-none transition-all"
                         value={formData.phone}
-                        onChange={e => setFormData({...formData, phone: e.target.value})}
+                        onChange={e => setFormData({ ...formData, phone: e.target.value })}
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2.5">
                     <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
-                    <input 
+                    <input
                       required
-                      type="email" 
+                      type="email"
                       placeholder="john@example.com"
                       className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-green-500 focus:ring-4 focus:ring-green-500/10 outline-none transition-all"
                       value={formData.email}
-                      onChange={e => setFormData({...formData, email: e.target.value})}
+                      onChange={e => setFormData({ ...formData, email: e.target.value })}
                     />
                   </div>
 
                   <div className="space-y-2.5">
                     <label className="text-sm font-bold text-slate-700 ml-1">Tell us about your requirements</label>
-                    <textarea 
+                    <textarea
                       required
                       rows={4}
                       placeholder="I'm interested in a 5kW on-grid solar system for my residence..."
                       className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-green-500 focus:ring-4 focus:ring-green-500/10 outline-none transition-all resize-none"
                       value={formData.message}
-                      onChange={e => setFormData({...formData, message: e.target.value})}
+                      onChange={e => setFormData({ ...formData, message: e.target.value })}
                     />
                   </div>
 
-                  <button 
+                  <button
                     type="submit"
                     disabled={loading}
                     className="w-full bg-slate-900 hover:bg-slate-800 text-white font-black py-5 rounded-2xl transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 group relative overflow-hidden"
@@ -207,7 +210,7 @@ _Sent from Contact Page_`;
                     </span>
                     <FiSend className={`text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 ${loading ? 'animate-pulse' : ''}`} />
                   </button>
-                  
+
                   <p className="text-center text-slate-400 text-[10px] uppercase font-bold tracking-[0.2em]">
                     Instant response guaranteed within 24 hours
                   </p>
@@ -219,7 +222,7 @@ _Sent from Contact Page_`;
         </div>
 
         {/* Full-width Business Hours & Locations Card */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -228,7 +231,7 @@ _Sent from Contact Page_`;
           <div className="absolute top-0 right-0 p-12 opacity-5">
             <FiClock className="text-[12rem]" />
           </div>
-          
+
           <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             {/* Left part: Business Hours */}
             <div>
@@ -253,18 +256,17 @@ _Sent from Contact Page_`;
               <h4 className="text-white/40 font-bold text-xs mb-6 uppercase tracking-widest">Our Locations</h4>
               <div className="grid sm:grid-cols-2 gap-6">
                 {locations.map((loc, i) => (
-                  <button 
-                    key={i} 
+                  <button
+                    key={i}
                     onClick={() => setActiveLocation(i)}
-                    className={`w-full text-left p-6 rounded-2xl transition-all duration-300 flex flex-col gap-3 leading-relaxed border ${
-                      activeLocation === i 
-                      ? 'bg-green-600 text-white border-green-500 shadow-lg shadow-green-900/20 scale-[1.02]' 
-                      : 'border-white/10 text-slate-300 hover:bg-white/5'
-                    }`}
+                    className={`w-full text-left p-6 rounded-2xl transition-all duration-300 flex flex-col gap-3 leading-relaxed border ${activeLocation === i
+                        ? 'bg-green-600 text-white border-green-500 shadow-lg shadow-green-900/20 scale-[1.02]'
+                        : 'border-white/10 text-slate-300 hover:bg-white/5'
+                      }`}
                   >
                     <div className="flex items-center gap-3">
                       <div className={`p-2 rounded-lg ${activeLocation === i ? 'bg-white/20' : 'bg-slate-800'}`}>
-                        <FiMapPin className={activeLocation === i ? 'text-white' : 'text-slate-500'} /> 
+                        <FiMapPin className={activeLocation === i ? 'text-white' : 'text-slate-500'} />
                       </div>
                       <span className={`font-bold text-sm ${activeLocation === i ? 'text-white' : 'text-slate-100'}`}>{loc.name}</span>
                     </div>
@@ -285,9 +287,8 @@ _Sent from Contact Page_`;
               <button
                 key={i}
                 onClick={() => setActiveLocation(i)}
-                className={`pb-4 px-2 text-sm font-bold transition-all relative ${
-                  activeLocation === i ? 'text-green-600' : 'text-slate-400 hover:text-slate-600'
-                }`}
+                className={`pb-4 px-2 text-sm font-bold transition-all relative ${activeLocation === i ? 'text-green-600' : 'text-slate-400 hover:text-slate-600'
+                  }`}
               >
                 {loc.name}
                 {activeLocation === i && (
@@ -297,22 +298,22 @@ _Sent from Contact Page_`;
             ))}
           </div>
         </div>
-        
+
         <div className="w-full h-[500px] bg-slate-100 relative group">
           <AnimatePresence mode="wait">
-            <motion.iframe 
+            <motion.iframe
               key={activeLocation}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
               title={locations[activeLocation].name}
-              src={locations[activeLocation].embed} 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen="" 
-              loading="lazy" 
+              src={locations[activeLocation].embed}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="grayscale hover:grayscale-0 transition-all duration-700"
             ></motion.iframe>
